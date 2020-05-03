@@ -8,9 +8,9 @@ font-family: 'Oswald', sans-serif;
   box-sizing: border-box;
 }
 
-body{
+#body{
   font-family: 'Lato', sans-serif;
-  color: #777;
+  color: gray;
 }
 
 header{
@@ -20,4 +20,69 @@ header{
   padding: 2rem;
   border-radius: .6rem;
   box-shadow: 0 .3rem .5rem #888;
+}
+
+.menu{
+  font-size: 1.5rem;
+  border: 2px solid #ccc;
+  border-radius: .6rem;
+  margin: .7rem 0 .7rem 0;
+}
+.menu a:hover{
+  font-size: 1.7rem;
+}
+
+.displayDivsWrapper{
+  display: grid;
+  justify-content: space-around;
+  /* grid-template-areas:
+    "div1" "div2" "div3"; */
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 1rem;
+  padding: 1rem;
+}
+.div1{
+  /* grid-area: div1; */
+}
+.div2{
+  /* grid-area: div2; */
+}
+.div3{
+  /* grid-area: div3; */
+}
+#div1,#div2,#div3{
+  min-width: 200px;
+  padding: 3rem 1rem 3rem 1rem;
+  border: 3px solid tomato;
+  border-radius: .6rem;
+  text-align: center;
+  font-size: 3rem;
+  background-color: white;
+}
+#div1:hover,#div2:hover,#div3:hover{
+  font-weight: bold;
+}
+.colorChangeWrapper{
+  padding: 1rem;
+}
+.mainButtonWrapper{
+  padding: 1rem;
+}
+
+button{
+  padding: 1rem;
+  border-radius: .5rem;
+  background-color: inherit;
+  font-size: 1rem;
+  border: 3px solid #aaa;
+  color: #777;
+}
+button:hover{
+  font-weight: bolder;
+}
+input[type="text"]{
+  padding: 1rem;
+  border-radius: .5rem;
+  border: 2px solid #aaa;
+  font-size: 1rem;
 }
