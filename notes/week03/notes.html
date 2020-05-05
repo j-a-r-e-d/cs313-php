@@ -26,6 +26,115 @@
             <li>
               <b>$_POST[]</b>: a super global that passes an array of variables via <b>HTTP POST. POST is invisible to others and preferred by most developers.</b>
             </li>
+            <li>
+              <b>$_SERVER["PHP_SELF"]</b> is a super global variable that returns the filename of the currently executing script. It sends the submitted form data to the page itself, instead of jumping to a different page. This way, the user will get error messages on the same page as the form.<br>
+              $_SERVER["PHP_SELF"] exploits can be avoided by using the htmlspecialchars() function.
+              The form code should look like this:<b><pre>&lt;form method="post" action=&lt;?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?&gt;&gt;</pre></b>
+            </li>
+            <li>
+              The <b>htmlspecialchars()</b> function converts special characters to HTML entities. This means that it will replace HTML characters like < and > with &lt; and &gt;. This prevents attackers from exploiting the code by injecting HTML or Javascript code (Cross-site Scripting attacks) in forms.
+            </li>
+            <li>
+              <h4>Do these 3 things when the user submits form data:</h4>
+              <ol>
+                <li>
+                  Pass all variables through PHP's <b>htmlspecialchars()</b> function.
+                </li>
+                <li>
+                  Strip unnecessary characters (extra space, tab, newline) from the user input data (with the PHP <b>trim()</b> function)
+                </li>
+                <li>
+                  Remove backslashes (\) from the user input data (with the PHP <b>stripslashes()</b> function)
+                </li>
+              </ol><br>
+              Create a function that will do all the checking for us (which is much more convenient than writing the same code over and over again). We will name the function test_input(). Now, we can check each $_POST variable with the test_input() function, and the script looks like this:
+              <b>
+                <pre>&lt;?php
+// define variables and set to empty values
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = test_input($_POST["name"]);
+  $email = test_input($_POST["email"]);
+  $website = test_input($_POST["website"]);
+  $comment = test_input($_POST["comment"]);
+  $gender = test_input($_POST["gender"]);
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?&gt;</pre>
+              </b>
+              Notice that at the start of the script, we check whether the form has been submitted using <b>$_SERVER["REQUEST_METHOD"]</b>. If the REQUEST_METHOD is POST, then the form has been submitted - and it should be validated. If it has not been submitted, skip the validation and display a blank form.<br><br>
+            </li>
+            <li>
+              In the following code we have added some new variables: $nameErr, $emailErr, $genderErr, and $websiteErr. These error variables will hold error messages for the required fields. We have also added an if else statement for each $_POST variable. This checks if the $_POST variable is empty (with the PHP <b>empty()</b> function). If it is empty, an error message is stored in the different error variables, and if it is not empty, it sends the user input data through the <b>test_input()</b> function:<b><pre>&lt;?php
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr = $websiteErr = "";
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+  }
+
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+  }
+
+  if (empty($_POST["website"])) {
+    $website = "";
+  } else {
+    $website = test_input($_POST["website"]);
+  }
+
+  if (empty($_POST["comment"])) {
+    $comment = "";
+  } else {
+    $comment = test_input($_POST["comment"]);
+  }
+
+  if (empty($_POST["gender"])) {
+    $genderErr = "Gender is required";
+  } else {
+    $gender = test_input($_POST["gender"]);
+  }
+}
+?&gt;</pre></b> 
+              This is how to display your PHP on the HTML page:<b><pre>&lt;form method="post" action="&lt;?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?&gt;"&gt;
+
+Name: &lt;input type="text" name="name"&gt;
+&lt;span class="error"&gt;* &lt;?php echo $nameErr;?>&lt;/span&gt;
+&lt;br&gt;&lt;br&gt;
+E-mail:
+&lt;input type="text" name="email"&gt;
+&lt;span class="error"&gt;* &lt;?php echo $emailErr;?&gt;&lt;/span&gt;
+&lt;br&gt;&lt;br&gt;
+Website:
+&lt;input type="text" name="website"&gt;
+&lt;span class="error"&gt;&lt;?php echo $websiteErr;?&gt;&lt;/span&gt;
+&lt;br&gt;&lt;br&gt;
+Comment: &lt;textarea name="comment" rows="5" cols="40"&gt;&lt;/textarea&gt;
+&lt;br&gt;&lt;br&gt;
+Gender:
+&lt;input type="radio" name="gender" value="female"&gt;Female
+&lt;input type="radio" name="gender" value="male"&gt;Male
+&lt;input type="radio" name="gender" value="other"&gt;Other
+&lt;span class="error"&gt;* &lt;?php echo $genderErr;?&gt;&lt;/span&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;input type="submit" name="submit" value="Submit"&gt;
+
+&lt;/form&gt;</pre>
+              </b>
+            </li>
           </ul>
         </li>
         <li><h3>PHP Files</h3></li>
