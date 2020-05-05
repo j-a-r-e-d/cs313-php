@@ -37,6 +37,10 @@ header span{
   box-shadow: 0 .3rem .5rem #888;
 }
 
+b, em{
+  color: tomato;
+}
+
 a{
   color: inherit;
 }
