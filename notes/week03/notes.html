@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notetaking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Oswald:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body id="body">
+    <header>
+      Week 3 Notes
+    </header>
+    <section class="menu">
+      <a href="../main.html"><h3>Go Back</h3></a>
+    </section>
+    <section id="notesWrapper">
+      <ol>
+        <li>
+          <h3>PHP Forms</h3>
+          <ul>
+            <li>When using PHP, you must use form validations to prevent malicious code.</li>
+            <li>
+              <b>$_GET[]</b>: a super global that passes an array of variables (key/value pairs) of the current script via the <b>URL parmeters. GET is visible to everyone!!!</b>.
+            </li>
+            <li>
+              <b>$_POST[]</b>: a super global that passes an array of variables via <b>HTTP POST. POST is invisible to others and preferred by most developers.</b>
+            </li>
+            <li>
+              <b>$_SERVER["PHP_SELF"]</b> is a super global variable that returns the filename of the currently executing script. It sends the submitted form data to the page itself, instead of jumping to a different page. This way, the user will get error messages on the same page as the form.<br>
+              $_SERVER["PHP_SELF"] exploits can be avoided by using the htmlspecialchars() function.
+              The form code should look like this:<b><pre>&lt;form method="post" action=&lt;?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?&gt;&gt;</pre></b>
+            </li>
+            <li>
+              The <b>htmlspecialchars()</b> function converts special characters to HTML entities. This means that it will replace HTML characters like < and > with &lt; and &gt;. This prevents attackers from exploiting the code by injecting HTML or Javascript code (Cross-site Scripting attacks) in forms.
+            </li>
+            <li>
+              <h4>Do these 3 things when the user submits form data:</h4>
+              <ol>
+                <li>
+                  Pass all variables through PHP's <b>htmlspecialchars()</b> function.
+                </li>
+                <li>
+                  Strip unnecessary characters (extra space, tab, newline) from the user input data (with the PHP <b>trim()</b> function)
+                </li>
+                <li>
+                  Remove backslashes (\) from the user input data (with the PHP <b>stripslashes()</b> function)
+                </li>
+              </ol><br>
+              Create a function that will do all the checking for us (which is much more convenient than writing the same code over and over again). We will name the function test_input(). Now, we can check each $_POST variable with the test_input() function, and the script looks like this:
+              <b>
+                <pre>&lt;?php
+// define variables and set to empty values
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = test_input($_POST["name"]);
+  $email = test_input($_POST["email"]);
+  $website = test_input($_POST["website"]);
+  $comment = test_input($_POST["comment"]);
+  $gender = test_input($_POST["gender"]);
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?&gt;</pre>
+              </b>
+              Notice that at the start of the script, we check whether the form has been submitted using <b>$_SERVER["REQUEST_METHOD"]</b>. If the REQUEST_METHOD is POST, then the form has been submitted - and it should be validated. If it has not been submitted, skip the validation and display a blank form.<br><br>
+            </li>
+            <li>
+              In the following code we have added some new variables: $nameErr, $emailErr, $genderErr, and $websiteErr. These error variables will hold error messages for the required fields. We have also added an if else statement for each $_POST variable. This checks if the $_POST variable is empty (with the PHP <b>empty()</b> function). If it is empty, an error message is stored in the different error variables, and if it is not empty, it sends the user input data through the <b>test_input()</b> function:<b><pre>&lt;?php
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr = $websiteErr = "";
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+  }
+
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+  }
+
+  if (empty($_POST["website"])) {
+    $website = "";
+  } else {
+    $website = test_input($_POST["website"]);
+  }
+
+  if (empty($_POST["comment"])) {
+    $comment = "";
+  } else {
+    $comment = test_input($_POST["comment"]);
+  }
+
+  if (empty($_POST["gender"])) {
+    $genderErr = "Gender is required";
+  } else {
+    $gender = test_input($_POST["gender"]);
+  }
+}
+?&gt;</pre></b>
+              This is how to display your PHP on the HTML page:<b><pre>&lt;form method="post" action="&lt;?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?&gt;"&gt;
+
+Name: &lt;input type="text" name="name"&gt;
+&lt;span class="error"&gt;* &lt;?php echo $nameErr;?>&lt;/span&gt;
+&lt;br&gt;&lt;br&gt;
+E-mail:
+&lt;input type="text" name="email"&gt;
+&lt;span class="error"&gt;* &lt;?php echo $emailErr;?&gt;&lt;/span&gt;
+&lt;br&gt;&lt;br&gt;
+Website:
+&lt;input type="text" name="website"&gt;
+&lt;span class="error"&gt;&lt;?php echo $websiteErr;?&gt;&lt;/span&gt;
+&lt;br&gt;&lt;br&gt;
+Comment: &lt;textarea name="comment" rows="5" cols="40"&gt;&lt;/textarea&gt;
+&lt;br&gt;&lt;br&gt;
+Gender:
+&lt;input type="radio" name="gender" value="female"&gt;Female
+&lt;input type="radio" name="gender" value="male"&gt;Male
+&lt;input type="radio" name="gender" value="other"&gt;Other
+&lt;span class="error"&gt;* &lt;?php echo $genderErr;?&gt;&lt;/span&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;input type="submit" name="submit" value="Submit"&gt;
+
+&lt;/form&gt;</pre>
+              </b>
+            </li>
+            <li>
+              <b>preg_match()</b> function searches a string for pattern, returning true if the pattern exists, and false otherwise. Example: <b><pre>$name = test_input($_POST["name"]);
+if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+  $nameErr = "Only letters and white space allowed";
+}</pre> </b>
+            </li>
+            <li>
+              <h4>Validate email</h4> formats use <b>filter_var(varName, [filterName], [options])</b>. 'varName' is required, but filterName and options are optional. The default filterName is <b>FILTER_DEFAULT</b>. Example: <b><pre>$email = test_input($_POST["email"]);
+// This will remove illegal characters from email.
+if(filter_var($email,FILTER_SANITIZE_EMAIL)) {
+  // This will validate the proper format which includes @ and .
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $emailErr = "Invalid email format";
+}
+}</pre> </b>
+            </li>
+            <li>
+              <h4>Validate a URL:</h4> Example:<b><pre>$website = test_input($_POST["website"]);
+if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+  $websiteErr = "Invalid URL";
+}</pre> </b>
+            </li>
+            <li>
+              To show the values in the input fields after the user hits the submit button, we add a little PHP script inside the value attribute:<b><pre>Name: &lt;input type="text" name="name" value="&lt;?php echo $name;?&gt;"&gt;
+
+E-mail: &lt;input type="text" name="email" value="&lt;?php echo $email;?&gt;"&gt;
+
+Website: &lt;input type="text" name="website" value="&lt;?php echo $website;?&gt;"&gt;
+
+Comment: &lt;textarea name="comment" rows="5" cols="40"&gt;&lt;?php echo $comment;?&gt;&lt;/textarea&gt;
+
+Gender:
+&lt;input type="radio" name="gender"
+&lt;?php if (isset($gender) && $gender=="female") echo "checked";?&gt;
+value="female">Female
+&lt;input type="radio" name="gender"
+&lt;?php if (isset($gender) && $gender=="male") echo "checked";?&gt;
+value="male">Male
+&lt;input type="radio" name="gender"
+&lt;?php if (isset($gender) && $gender=="other") echo "checked";?&gt;
+value="other"&gt;Other</pre> </b>
+            </li>
+          </ul>
+        </li>
+        <li><h3>PHP Files</h3>
+          <ul>
+            <li>
+              <b><code>'include'</code></b> and <b><code>'require'</code></b> are identical except that when <b><code>'require'</code></b> fails, it produces a fatal error (E_COMPILE_ERROR). <b><code>'include'</code></b> produces a (E_WARNING) and will allow the program to continue.
+            </li>
+            <li>
+              <b><code>'include'</code></b> allows you to use a single PHP file on multiple webpages. It's common to create separate PHP files for standard parts of webpages (header,footer,menu). Then, if a change needs to be made to one of these commonly used parts, the change only needs to be made on one file. Example: <b><pre>// A basic footer file:
+&lt;?php
+echo "&lt;p&gt;Copyright &copy; 1999-" . date("Y") . " W3Schools.com&lt;/p&gt;";
+?&gt;
+// The HTML with the PHP footer included:
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Welcome to my home page!&lt;/h1&gt;
+&lt;p&gt;Some text.&lt;/p&gt;
+&lt;p&gt;Some more text.&lt;/p&gt;
+&lt;?php include 'footer.php';?&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre> </b><br>
+            Standard MENU example:<b><pre>&lt;?php
+echo '&lt;a href=&quot;/default.asp&quot;&gt;Home&lt;/a&gt; -
+&lt;a href=&quot;/html/default.asp&quot;&gt;HTML Tutorial&lt;/a&gt; -
+&lt;a href=&quot;/css/default.asp&quot;&gt;CSS Tutorial&lt;/a&gt; -
+&lt;a href=&quot;/js/default.asp&quot;&gt;JavaScript Tutorial&lt;/a&gt; -
+&lt;a href=&quot;default.asp&quot;&gt;PHP Tutorial&lt;/a&gt;';
+?&gt;</pre> </b> Wrap the menu in a &lt;div&gt; tag and give it a class/id so that you can style it later with CSS, like so: <b><pre>&lt;html&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;menu&quot;&gt;
+&lt;?php include 'menu.php';?&gt;
+&lt;/div&gt;
+
+&lt;h1&gt;Welcome to my home page!&lt;/h1&gt;
+&lt;p&gt;Some text.&lt;/p&gt;
+&lt;p&gt;Some more text.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre> </b>
+            </li>
+            <li>
+              When manipulating files, use
+              <ol>
+                <li>
+                  <b>readfile()</b>: If you just want to open a file and read all of its contents, use readfile(). Ex: readfile("myTextFile.txt");
+                </li>
+                <li>
+                  <b>fopen()</b>: include the filename to open and the open mode. Ex: fopen("webdictionary.txt", "r") or die("Unable to open file!"); The 'die' part generates an error message in the event the open fails. <b><pre>&lt;?php
+    $myfile = fopen(&quot;webdictionary.txt&quot;, &quot;r&quot;) or die(&quot;Unable to open file!&quot;);
+    echo fread($myfile,filesize(&quot;webdictionary.txt&quot;));
+    fclose($myfile);
+    ?&gt;</pre></b><b>fopen() is also used to create files.</b>
+                  A new file will be created and saved in the same directory where the PHP file resides.
+                  <ul>
+                    Open modes:
+                    <li>
+                      <b>r</b>	Open a file for read only. File pointer starts at the beginning of the file
+                    </li>
+                    <li>
+                      <b>w</b> Open a file for write only. Erases the contents of the file or creates a new file if it doesn't exist. File pointer starts at the beginning of the file
+                    </li>
+                    <li>
+                      <b>a</b> Open a file for write only. The existing data in file is preserved. File pointer starts at the end of the file. Creates a new file if the file doesn't exist
+                    </li>
+                    <li>
+                      <b>x</b> Creates a new file for write only. Returns FALSE and an error if file already exists
+                    </li>
+                    <li>
+                      <b>r+</b> Open a file for read/write. File pointer starts at the beginning of the file
+                    </li>
+                    <li>
+                      <b>w+</b> Open a file for read/write. Erases the contents of the file or creates a new file if it doesn't exist. File pointer starts at the beginning of the file
+                    </li>
+                    <li>
+                      <b>a+</b> Open a file for read/write. The existing data in file is preserved. File pointer starts at the end of the file. Creates a new file if the file doesn't exist
+                    </li>
+                    <li>
+                      <b>x+</b> Creates a new file for read/write. Returns FALSE and an error if file already exists
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <b>fread(fileName, readSize)</b>: must include the number of bytes to read as second parameter. Ex: fread($myfile,filesize("webdictionary.txt"));
+                </li>
+                <li>
+                  <b>fclose()</b>: Always close out opened files. Ex: fclose($myfile);
+                </li>
+                <li>
+                  <b>fgets()</b>: reads one line of text (think get S for 'string'). Ex: echo fgets($myfile);
+                </li>
+                <li>
+                  <b>fgetc()</b>: reads first character of text (think get C for 'char'). Ex: echo fgetc($myfile);
+                </li>
+                <li>
+                  <b>feof()</b>: checks for end-of-file.
+                </li>
+                <li>
+                  <b>fwrite()</b> It's best to place the text to be written into a variable first rather than passing the entire string of text as the 2nd paramter. Ex: <b><pre>&lt;?php
+$myfile = fopen(&quot;newfile.txt&quot;, &quot;w&quot;) or die(&quot;Unable to open file!&quot;);
+$txt = &quot;John Doe\n&quot;;
+fwrite($myfile, $txt);
+$txt = &quot;Jane Doe\n&quot;;
+fwrite($myfile, $txt);
+fclose($myfile);
+?&gt;</pre> </b>
+                </li>
+                <li>
+                  <b><a href="https://www.w3schools.com/php/php_ref_filesystem.asp">Complete PHP filesystem functions</a></b>
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </li>
+        <li><h3>PHP Cookies</h3></li>
+        <li><h3>PHP Sessions</h3></li>
+        <li><h3>PHP Data Filtering</h3></li>
+      </ol>
+    </section>
+  </body>
+</html>
