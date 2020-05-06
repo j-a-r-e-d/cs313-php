@@ -227,7 +227,11 @@ echo '&lt;a href=&quot;/default.asp&quot;&gt;Home&lt;/a&gt; -
                   <b>readfile()</b>: If you just want to open a file and read all of its contents, use readfile(). Ex: readfile("myTextFile.txt");
                 </li>
                 <li>
-                  <b>fopen()</b>: include the filename to open and the open mode. Ex: fopen("webdictionary.txt", "r") or die("Unable to open file!"); The 'die' part generates an error message in the event the open fails. <b>fopen() is also used to create files.</b>
+                  <b>fopen()</b>: include the filename to open and the open mode. Ex: fopen("webdictionary.txt", "r") or die("Unable to open file!"); The 'die' part generates an error message in the event the open fails. <b><pre>&lt;?php
+    $myfile = fopen(&quot;webdictionary.txt&quot;, &quot;r&quot;) or die(&quot;Unable to open file!&quot;);
+    echo fread($myfile,filesize(&quot;webdictionary.txt&quot;));
+    fclose($myfile);
+    ?&gt;</pre></b><b>fopen() is also used to create files.</b>
                   A new file will be created and saved in the same directory where the PHP file resides.
                   <ul>
                     Open modes:
@@ -286,11 +290,6 @@ fclose($myfile);
                   <b><a href="https://www.w3schools.com/php/php_ref_filesystem.asp">Complete PHP filesystem functions</a></b>
                 </li>
               </ol>
-              <b><pre>&lt;?php
-$myfile = fopen(&quot;webdictionary.txt&quot;, &quot;r&quot;) or die(&quot;Unable to open file!&quot;);
-echo fread($myfile,filesize(&quot;webdictionary.txt&quot;));
-fclose($myfile);
-?&gt;</pre></b>
             </li>
           </ul>
         </li>
