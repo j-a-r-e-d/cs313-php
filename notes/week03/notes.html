@@ -108,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $gender = test_input($_POST["gender"]);
   }
 }
-?&gt;</pre></b> 
+?&gt;</pre></b>
               This is how to display your PHP on the HTML page:<b><pre>&lt;form method="post" action="&lt;?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?&gt;"&gt;
 
 Name: &lt;input type="text" name="name"&gt;
@@ -135,9 +135,165 @@ Gender:
 &lt;/form&gt;</pre>
               </b>
             </li>
+            <li>
+              <b>preg_match()</b> function searches a string for pattern, returning true if the pattern exists, and false otherwise. Example: <b><pre>$name = test_input($_POST["name"]);
+if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+  $nameErr = "Only letters and white space allowed";
+}</pre> </b>
+            </li>
+            <li>
+              <h4>Validate email</h4> formats use <b>filter_var(varName, [filterName], [options])</b>. 'varName' is required, but filterName and options are optional. The default filterName is <b>FILTER_DEFAULT</b>. Example: <b><pre>$email = test_input($_POST["email"]);
+// This will remove illegal characters from email.
+if(filter_var($email,FILTER_SANITIZE_EMAIL)) {
+  // This will validate the proper format which includes @ and .
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $emailErr = "Invalid email format";
+}
+}</pre> </b>
+            </li>
+            <li>
+              <h4>Validate a URL:</h4> Example:<b><pre>$website = test_input($_POST["website"]);
+if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+  $websiteErr = "Invalid URL";
+}</pre> </b>
+            </li>
+            <li>
+              To show the values in the input fields after the user hits the submit button, we add a little PHP script inside the value attribute:<b><pre>Name: &lt;input type="text" name="name" value="&lt;?php echo $name;?&gt;"&gt;
+
+E-mail: &lt;input type="text" name="email" value="&lt;?php echo $email;?&gt;"&gt;
+
+Website: &lt;input type="text" name="website" value="&lt;?php echo $website;?&gt;"&gt;
+
+Comment: &lt;textarea name="comment" rows="5" cols="40"&gt;&lt;?php echo $comment;?&gt;&lt;/textarea&gt;
+
+Gender:
+&lt;input type="radio" name="gender"
+&lt;?php if (isset($gender) && $gender=="female") echo "checked";?&gt;
+value="female">Female
+&lt;input type="radio" name="gender"
+&lt;?php if (isset($gender) && $gender=="male") echo "checked";?&gt;
+value="male">Male
+&lt;input type="radio" name="gender"
+&lt;?php if (isset($gender) && $gender=="other") echo "checked";?&gt;
+value="other"&gt;Other</pre> </b>
+            </li>
           </ul>
         </li>
-        <li><h3>PHP Files</h3></li>
+        <li><h3>PHP Files</h3>
+          <ul>
+            <li>
+              <b><code>'include'</code></b> and <b><code>'require'</code></b> are identical except that when <b><code>'require'</code></b> fails, it produces a fatal error (E_COMPILE_ERROR). <b><code>'include'</code></b> produces a (E_WARNING) and will allow the program to continue.
+            </li>
+            <li>
+              <b><code>'include'</code></b> allows you to use a single PHP file on multiple webpages. It's common to create separate PHP files for standard parts of webpages (header,footer,menu). Then, if a change needs to be made to one of these commonly used parts, the change only needs to be made on one file. Example: <b><pre>// A basic footer file:
+&lt;?php
+echo "&lt;p&gt;Copyright &copy; 1999-" . date("Y") . " W3Schools.com&lt;/p&gt;";
+?&gt;
+// The HTML with the PHP footer included:
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Welcome to my home page!&lt;/h1&gt;
+&lt;p&gt;Some text.&lt;/p&gt;
+&lt;p&gt;Some more text.&lt;/p&gt;
+&lt;?php include 'footer.php';?&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre> </b><br>
+            Standard MENU example:<b><pre>&lt;?php
+echo '&lt;a href=&quot;/default.asp&quot;&gt;Home&lt;/a&gt; -
+&lt;a href=&quot;/html/default.asp&quot;&gt;HTML Tutorial&lt;/a&gt; -
+&lt;a href=&quot;/css/default.asp&quot;&gt;CSS Tutorial&lt;/a&gt; -
+&lt;a href=&quot;/js/default.asp&quot;&gt;JavaScript Tutorial&lt;/a&gt; -
+&lt;a href=&quot;default.asp&quot;&gt;PHP Tutorial&lt;/a&gt;';
+?&gt;</pre> </b> Wrap the menu in a &lt;div&gt; tag and give it a class/id so that you can style it later with CSS, like so: <b><pre>&lt;html&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;menu&quot;&gt;
+&lt;?php include 'menu.php';?&gt;
+&lt;/div&gt;
+
+&lt;h1&gt;Welcome to my home page!&lt;/h1&gt;
+&lt;p&gt;Some text.&lt;/p&gt;
+&lt;p&gt;Some more text.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre> </b>
+            </li>
+            <li>
+              When manipulating files, use
+              <ol>
+                <li>
+                  <b>readfile()</b>: If you just want to open a file and read all of its contents, use readfile(). Ex: readfile("myTextFile.txt");
+                </li>
+                <li>
+                  <b>fopen()</b>: include the filename to open and the open mode. Ex: fopen("webdictionary.txt", "r") or die("Unable to open file!"); The 'die' part generates an error message in the event the open fails. <b>fopen() is also used to create files.</b>
+                  A new file will be created and saved in the same directory where the PHP file resides.
+                  <ul>
+                    Open modes:
+                    <li>
+                      <b>r</b>	Open a file for read only. File pointer starts at the beginning of the file
+                    </li>
+                    <li>
+                      <b>w</b> Open a file for write only. Erases the contents of the file or creates a new file if it doesn't exist. File pointer starts at the beginning of the file
+                    </li>
+                    <li>
+                      <b>a</b> Open a file for write only. The existing data in file is preserved. File pointer starts at the end of the file. Creates a new file if the file doesn't exist
+                    </li>
+                    <li>
+                      <b>x</b> Creates a new file for write only. Returns FALSE and an error if file already exists
+                    </li>
+                    <li>
+                      <b>r+</b> Open a file for read/write. File pointer starts at the beginning of the file
+                    </li>
+                    <li>
+                      <b>w+</b> Open a file for read/write. Erases the contents of the file or creates a new file if it doesn't exist. File pointer starts at the beginning of the file
+                    </li>
+                    <li>
+                      <b>a+</b> Open a file for read/write. The existing data in file is preserved. File pointer starts at the end of the file. Creates a new file if the file doesn't exist
+                    </li>
+                    <li>
+                      <b>x+</b> Creates a new file for read/write. Returns FALSE and an error if file already exists
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <b>fread(fileName, readSize)</b>: must include the number of bytes to read as second parameter. Ex: fread($myfile,filesize("webdictionary.txt"));
+                </li>
+                <li>
+                  <b>fclose()</b>: Always close out opened files. Ex: fclose($myfile);
+                </li>
+                <li>
+                  <b>fgets()</b>: reads one line of text (think get S for 'string'). Ex: echo fgets($myfile);
+                </li>
+                <li>
+                  <b>fgetc()</b>: reads first character of text (think get C for 'char'). Ex: echo fgetc($myfile);
+                </li>
+                <li>
+                  <b>feof()</b>: checks for end-of-file.
+                </li>
+                <li>
+                  <b>fwrite()</b> It's best to place the text to be written into a variable first rather than passing the entire string of text as the 2nd paramter. Ex: <b><pre>&lt;?php
+$myfile = fopen(&quot;newfile.txt&quot;, &quot;w&quot;) or die(&quot;Unable to open file!&quot;);
+$txt = &quot;John Doe\n&quot;;
+fwrite($myfile, $txt);
+$txt = &quot;Jane Doe\n&quot;;
+fwrite($myfile, $txt);
+fclose($myfile);
+?&gt;</pre> </b>
+                </li>
+                <li>
+                  <b><a href="https://www.w3schools.com/php/php_ref_filesystem.asp">Complete PHP filesystem functions</a></b>
+                </li>
+              </ol>
+              <b><pre>&lt;?php
+$myfile = fopen(&quot;webdictionary.txt&quot;, &quot;r&quot;) or die(&quot;Unable to open file!&quot;);
+echo fread($myfile,filesize(&quot;webdictionary.txt&quot;));
+fclose($myfile);
+?&gt;</pre></b>
+            </li>
+          </ul>
+        </li>
         <li><h3>PHP Cookies</h3></li>
         <li><h3>PHP Sessions</h3></li>
         <li><h3>PHP Data Filtering</h3></li>
