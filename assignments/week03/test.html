@@ -1,0 +1,21 @@
+<?php
+  // Start the session
+  session_start();
+?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Testing PHP Skills</title>
+  </head>
+  <body>
+    <form class="form1" action="test.php" method="post">
+      Enter your name: <input type="text" name="userName" value="">
+      <input type="submit" name="submitBtn" value="Submit">
+    </form>
+    <?php
+    $_SESSION["userName"] = htmlspecialchars("userName");
+
+    ?>
+  </body>
+</html>
