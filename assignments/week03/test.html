@@ -1,21 +1,19 @@
-<?php
-  // Start the session
-  session_start();
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Testing PHP Skills</title>
+    <style media="screen">
+      a{color:#777;}
+      a:hover{color: tomato;}
+      body{font-size: 2rem;font-family: arial;color:#777;}
+    </style>
   </head>
   <body>
-    <form class="form1" action="test.php" method="post">
-      Enter your name: <input type="text" name="userName" value="">
+    <a href="test.php">PHP page</a>
+    <form class="form1" action="test.php" method="get">
+      Username: <input type="text" name="username" value="">
       <input type="submit" name="submitBtn" value="Submit">
     </form>
-    <?php
-    $_SESSION["userName"] = htmlspecialchars("userName");
-
-    ?>
   </body>
 </html>
