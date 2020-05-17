@@ -11,14 +11,22 @@
     </style>
   </head>
   <body>
-    <a href="test.html">HTML page</a>
+    <a href="test.html">HTML page</a><br>
+    <a href="test2.php">PHP2 page</a><br>
+
+    <p><b>PHP Results Below:</b><br>===============<br></p>
     <?php
-      echo "<br><br>This is where the PHP goes.";
+      $userName = htmlspecialchars($_GET['username']);
+      $_SESSION['name'] = "$userName";
+      $_SESSION['favColor'] = 'yellow';
+      $_SESSION["son"] = 'Liam';
+      $_SESSION["daughter"] = 'Claire';
+      $_SESSION["wife"] = 'Cailin';
+      $familyMems = array('son' => $_SESSION["son"],'daughter' => $_SESSION["daughter"],'wife' => $_SESSION["wife"]);
+      $_SESSION["myFamily"] = $familyMems;
+      $keys = array_keys($_SESSION);
 
-      $_SESSION['name'] = htmlspecialchars($_GET['username']);
-
-      echo "<br><br>" . $_SESSION['name'];
-
-     ?>
+      echo "Your name input is: $userName.";
+    ?>
   </body>
 </html>
