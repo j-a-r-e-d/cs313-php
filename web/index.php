@@ -1,6 +1,6 @@
 <?php
 
-	echo "Hello fug nuckets.";
+	echo "Hello nachos.";
   //phpinfo();
 
 ?>
