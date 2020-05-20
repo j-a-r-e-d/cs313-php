@@ -1,5 +1,6 @@
 <?php
 
-  phpinfo();
+	echo "Hello fug nuckets.";
+  //phpinfo();
 
 ?>
