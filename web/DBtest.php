@@ -14,7 +14,9 @@
 		$statement = $db->query('SELECT title FROM songs ORDER BY title ASC;');
 		$results = $statement->fetch(PDO::FETCH_ASSOC);
 
-		echo "<div>".$results."</div>";
+		$rows = pg_num_rows($results);
+
+		echo "<div>".$results."</div><br>".$rows;
 
 	?>
 </body>
