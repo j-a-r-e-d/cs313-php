@@ -13,10 +13,15 @@
 	<?php  
 		$statement = $db->query('SELECT title FROM songs ORDER BY title ASC;');
 		$results = $statement->fetch(PDO::FETCH_ASSOC);
+		$rows = $results->fetchAll();
 
-		$rows = pg_num_rows($results);
+		foreach ($rows as $row) {
+			$title = htmlentities($row['title']);
 
-		echo "<div>".$results."</div><br>".$rows;
+			echo $title.'<br>';
+		}
+
+		print_r($results);
 
 	?>
 </body>
