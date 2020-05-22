@@ -15,11 +15,11 @@
 		$results = $statement->fetch(PDO::FETCH_ASSOC);
 		$rows = $results->fetchAll();
 
-		foreach ($rows as $row) {
-			$title = htmlentities($row['title']);
+		// foreach ($rows as $row) {
+		// 	$title = htmlentities($row['title']);
 
-			echo $title.'<br>';
-		}
+		// 	echo $title.'<br>';
+		// }
 
 		print_r($results);
 
