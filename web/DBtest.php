@@ -12,7 +12,7 @@
 	Use this to test DB interactions.
 	<?php  
 		$statement = $db->query('SELECT title FROM songs ORDER BY title ASC;');
-		$results = $statement->fetch(PDO::FETCH_ASSOC);
+		$results = $statement->fetchAll(PDO::FETCH_ASSOC);
 		
 
 		foreach ($results as $row) {
