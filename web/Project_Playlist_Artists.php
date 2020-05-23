@@ -28,7 +28,7 @@
 			print_r($results);
 
 			foreach ($results as $row) {
-				$artistName = htmlentities($row['artistName']);
+				$artistName = htmlentities($row['artistname']);
 
 				echo "-".$artistName.'<br>';
 			}
