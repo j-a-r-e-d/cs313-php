@@ -11,11 +11,17 @@
 
 </head>
 <body>
-	<a href="Project_Playlist.html"><h3>Go Back</h3></a>
+	<a href="Project_Playlist.html"><h3>Back to startpage</h3></a>
 	<div>
-		<input type="button" name="artists" value="Artists" id="artists">
-		<input type="button" name="albums" value="Albums" id="albums">
-		<input type="button" name="songs" value="Songs" id="songs">
+		<a href="Project_Playlist_Artists.php">
+			<input type="button" name="artists" value="Artists" id="artists">
+		</a>
+		<a href="Project_Playlist_Albums.php">
+			<input type="button" name="albums" value="Albums" id="albums">
+		</a>
+		<a href="Project_Playlist_Songs.php">
+			<input type="button" name="songs" value="Songs" id="songs">
+		</a>
 	</div>
 
 	<div id="results">
