@@ -10,7 +10,7 @@
 
 </head>
 <body>
-	<a href="Project_Playlist.html"><h3>Back to startpage</h3></a>
+	<a href="Project_Playlist.html"><h3>Back to start page</h3></a>
 	<div>
 		<a href="Project_Playlist_Artists.php">
 			<input type="button" name="artists" value="Artists" id="artists">

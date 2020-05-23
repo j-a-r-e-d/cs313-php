@@ -6,6 +6,10 @@ body{
 	color:#ccc;
 }
 
+header{
+	margin:0 1rem;
+}
+
 input[type="button"]{
 	padding: 1rem 2rem;
 	margin: 1rem;
