@@ -22,14 +22,15 @@
 		<?php  
 			$statement = $db->query('SELECT artistName FROM artists ORDER BY artistName;');
 			$results = $statement->fetchAll(PDO::FETCH_ASSOC);
-			
+			$cnt = 0;
 			//print_r($results);
 
 			foreach ($results as $row) {
 				$artistName = htmlentities($row['artistname']); // I had to change column name (artistname) 
 																// to all lowercase to all lowercase.
+				echo $cnt.'. '.$artistName.'<br>';
+				$cnt++;
 
-				echo "-".$artistName.'<br>';
 			}
 		?>
 	</div>
