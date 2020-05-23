@@ -28,16 +28,18 @@
 				SELECT art.artistname,alb.title 
 				FROM albums alb
 				JOIN artists art ON art.artistid = alb.artistid
-				ORDER BY art.artistname,alb.title;');
+				ORDER BY art.artistname,alb.title;
+				');
 			$results = $statement->fetchAll(PDO::FETCH_ASSOC);
 			$cnt = 0;
 			//print_r($results);
-			echo "ARTIST "."| ALBUM<br>";
+			echo "ARTIST   "."|   ALBUM<br>";
 			foreach ($results as $row) {
 				$cnt++;
-				$artistName = htmlentities($row['artistname']); // I had to change column name (artistname) 
+				$artistName = htmlentities($row['art.artistname']); // I had to change column name (artistname) 
 																// to all lowercase to all lowercase.
-				echo $cnt.'. '.'<span style="color:#777;">'.$artistName.'</span><br>';
+				$title = htmlentities(($row['alb.title']);
+				echo $cnt.'. '.'<span style="color:#777;">'.$artistName.'   '.$title.'</span><br>';
 			}
 		?>
 	</div>
