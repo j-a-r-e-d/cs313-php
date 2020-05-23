@@ -23,7 +23,23 @@
 		</a>	
 	</div>
 	<div id="results">
-		Results for albums go here.
+		<?php  
+			$statement = $db->query('
+				SELECT title 
+				FROM albums alb
+				JOIN artists art ON art.artistid = alb.artistid
+				ORDER BY artistname,title;');
+			$results = $statement->fetchAll(PDO::FETCH_ASSOC);
+			$cnt = 0;
+			//print_r($results);
+			echo "ARTIST "."| ALBUM<br>";
+			foreach ($results as $row) {
+				$cnt++;
+				$artistName = htmlentities($row['artistname']); // I had to change column name (artistname) 
+																// to all lowercase to all lowercase.
+				echo $cnt.'. '.'<span style="color:#777;">'.$artistName.'</span><br>';
+			}
+		?>
 	</div>
 
 	<script type="Project_Playlist.js"></script>
