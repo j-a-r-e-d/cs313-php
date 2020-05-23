@@ -17,20 +17,23 @@
 		<input type="button" name="albums" value="Albums" id="albums">
 		<input type="button" name="songs" value="Songs" id="songs">
 	</div>
+	<?php
+		echo "Hello"."<br>";
+	?>
 	<div id="results">
 		<?php  
-		$statement = $db->query('SELECT artistName FROM artists ORDER BY artistName;');
-		$results = $statement->fetchAll(PDO::FETCH_ASSOC);
-		
+			$statement = $db->query('SELECT artistName FROM artists ORDER BY artistName;');
+			$results = $statement->fetchAll(PDO::FETCH_ASSOC);
+			
 
-		foreach ($results as $row) {
-			$artistName = htmlentities($row['artistName']);
+			foreach ($results as $row) {
+				$artistName = htmlentities($row['artistName']);
 
-			echo $artistName.'<br>';
-		}
+				echo $artistName.'<br>';
+			}
 
-		echo "What's up";
-	?>
+			echo "What's up";
+		?>
 	</div>
 
 	<script type="Project_Playlist.js"></script>
