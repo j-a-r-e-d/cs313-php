@@ -20,8 +20,6 @@
 			echo $title.'<br>';
 		}
 
-		//print_r($rows);
-
 	?>
 </body>
 </html>

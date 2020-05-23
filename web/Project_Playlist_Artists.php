@@ -28,6 +28,8 @@
 
 			echo $artistName.'<br>';
 		}
+
+		echo "What's up";
 	?>
 	</div>
 
