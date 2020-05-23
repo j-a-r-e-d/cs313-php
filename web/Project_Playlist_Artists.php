@@ -7,7 +7,7 @@
 <html>
 <head>
 	<title>Road-Trip Playlist Maker</title>
-	<!-- <link rel="stylesheet" href="styles.css" /> -->
+	<link rel="stylesheet" href="projectStyle.css" />
 
 </head>
 <body>
@@ -26,11 +26,10 @@
 			//print_r($results);
 
 			foreach ($results as $row) {
+				$cnt++;
 				$artistName = htmlentities($row['artistname']); // I had to change column name (artistname) 
 																// to all lowercase to all lowercase.
 				echo $cnt.'. '.$artistName.'<br>';
-				$cnt++;
-
 			}
 		?>
 	</div>

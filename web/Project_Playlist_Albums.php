@@ -6,7 +6,7 @@
 <html>
 <head>
 	<title>Road-Trip Playlist Maker</title>
-	<!-- <link rel="stylesheet" href="styles.css" /> -->
+	<link rel="stylesheet" href="projectStyle.css" />
 
 </head>
 <body>
@@ -17,7 +17,7 @@
 		<input type="button" name="songs" value="Songs" id="songs">
 	</div>
 	<div id="results">
-		Results go here.
+		Results for albums go here.
 	</div>
 
 	<script type="Project_Playlist.js"></script>
