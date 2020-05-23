@@ -30,9 +30,8 @@
 			foreach ($results as $row) {
 				$artistName = htmlentities($row['artistName']);
 
-				echo $artistName.'<br>';
+				echo "-".$artistName.'<br>';
 			}
-
 			echo "What's up";
 		?>
 	</div>
