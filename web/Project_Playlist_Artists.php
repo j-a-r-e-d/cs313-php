@@ -25,6 +25,7 @@
 			$statement = $db->query('SELECT artistName FROM artists ORDER BY artistName;');
 			$results = $statement->fetchAll(PDO::FETCH_ASSOC);
 			
+			print_r($results);
 
 			foreach ($results as $row) {
 				$artistName = htmlentities($row['artistName']);
