@@ -29,7 +29,7 @@
 				$cnt++;
 				$artistName = htmlentities($row['artistname']); // I had to change column name (artistname) 
 																// to all lowercase to all lowercase.
-				echo $cnt.'. '.$artistName.'<br>';
+				echo $cnt.'. '.'<span style="color:#777;">'.$artistName.'</span><br>';
 			}
 		?>
 	</div>
