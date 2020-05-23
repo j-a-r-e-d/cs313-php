@@ -36,9 +36,9 @@
 			echo "ARTIST   "."|   ALBUM<br>";
 			foreach ($results as $row) {
 				$cnt++;
-				$artistName = htmlentities($row['artistname']); // I had to change column name (artistname) 
+				$artistName = htmlentities($row['art.artistname']); // I had to change column name (artistname) 
 																// to all lowercase to all lowercase.
-				$title = htmlentities(($row['title']);
+				$title = htmlentities($row['alb.title']);
 				echo $cnt.'. '.'<span style="color:#777;">'.$artistName.'   '.$title.'</span><br>';
 			}
 		?>
