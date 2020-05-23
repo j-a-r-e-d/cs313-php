@@ -1,4 +1,3 @@
-
 <?php
 	require "DBConnection.php";
 	$db = get_db();
