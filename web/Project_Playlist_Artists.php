@@ -17,22 +17,20 @@
 		<input type="button" name="albums" value="Albums" id="albums">
 		<input type="button" name="songs" value="Songs" id="songs">
 	</div>
-	<?php
-		echo "Hello"."<br>";
-	?>
+
 	<div id="results">
 		<?php  
 			$statement = $db->query('SELECT artistName FROM artists ORDER BY artistName;');
 			$results = $statement->fetchAll(PDO::FETCH_ASSOC);
 			
-			print_r($results);
+			//print_r($results);
 
 			foreach ($results as $row) {
-				$artistName = htmlentities($row['artistname']);
+				$artistName = htmlentities($row['artistname']); // I had to change column name (artistname) 
+																// to all lowercase to all lowercase.
 
 				echo "-".$artistName.'<br>';
 			}
-			echo "What's up";
 		?>
 	</div>
 
