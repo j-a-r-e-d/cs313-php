@@ -25,10 +25,10 @@
 	<div id="results">
 		<?php  
 			$statement = $db->query('
-				SELECT title 
+				SELECT art.artistname,alb.title 
 				FROM albums alb
 				JOIN artists art ON art.artistid = alb.artistid
-				ORDER BY artistname,title;');
+				ORDER BY art.artistname,alb.title;');
 			$results = $statement->fetchAll(PDO::FETCH_ASSOC);
 			$cnt = 0;
 			//print_r($results);
