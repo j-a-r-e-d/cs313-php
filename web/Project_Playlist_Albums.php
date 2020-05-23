@@ -14,7 +14,9 @@
 	<div>
 		<input type="button" name="artists" value="Artists" id="artists">
 		<input type="button" name="albums" value="Albums" id="albums">
-		<input type="button" name="songs" value="Songs" id="songs">
+		<a href="Project_Playlist_Songs.php">
+			<input type="button" name="songs" value="Songs" id="songs">
+		</a>	
 	</div>
 	<div id="results">
 		Results for albums go here.
