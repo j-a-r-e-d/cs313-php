@@ -10,6 +10,10 @@
 
 </head>
 <body>
+	<header>
+		<h1>ROAD-TRIP PLAYLIST MAKER</h1>
+	</header>
+
 	<a href="Project_Playlist.html"><h3>Back to start page</h3></a>
 	<div>
 		<a href="Project_Playlist_Artists.php">
