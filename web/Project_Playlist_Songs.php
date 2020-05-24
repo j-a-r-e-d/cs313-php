@@ -37,8 +37,8 @@
 			echo "ALBUM   "."|   SONGS<br>";
 			foreach ($results as $row) {
 				$cnt++;
-				$songTitle = htmlentities($row["Song"]);  
-				$albumTitle = htmlentities($row["Album"]);
+				$songTitle = htmlentities($row["song"]);  
+				$albumTitle = htmlentities($row["album"]);
 				echo $cnt.'. '.'<span style="color:#777;">'.$albumTitle.'  -  '.$songTitle.'</span><br>';
 			}
 		?>
