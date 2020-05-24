@@ -39,7 +39,7 @@
 				$artistName = htmlentities($row['artistname']); // I had to change column name (artistname) 
 																// to all lowercase to all lowercase.
 				$title = htmlentities($row['title']);
-				echo $cnt.'. '.'<span style="color:#777;">'.$artistName.'  -  '.$title.'</span><br>';
+				echo $cnt.'. '.'<span style="color:#777;">'.$artistName.'  -  </span><span style="color:dodgerblue;">'.$title.'</span><br>';
 			}
 		?>
 	</div>
