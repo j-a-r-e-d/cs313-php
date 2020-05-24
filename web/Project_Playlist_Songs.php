@@ -41,7 +41,7 @@
 				$artistName = htmlentities($row['artist']); 
 				$songTitle = htmlentities($row["song"]);  
 				$albumTitle = htmlentities($row["album"]);
-				echo $cnt.'. '.'<span style="color:#777;">'.$artistName.' | '.$albumTitle.'  -  '.$songTitle.'</span><br>';
+				echo $cnt.'. '.'<span style="color:#777;">'.$artistName.'</span> |<span style="color:dodgerblue;">'.$albumTitle.'</span><span style="color:#777;">  -  </span><span style="color:tomato;">'.$songTitle.'</span><br>';
 			}
 		?>
 	</div>
