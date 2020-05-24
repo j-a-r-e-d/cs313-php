@@ -35,7 +35,7 @@
 			$results = $statement->fetchAll(PDO::FETCH_ASSOC);
 			$cnt = 0;
 			//print_r($results);
-			echo "ALBUM   "."|   SONGS<br>";
+			echo "ARTIST   |   "."ALBUM   "."|   SONGS<br>";
 			foreach ($results as $row) {
 				$cnt++;
 				$artistName = htmlentities($row['artist']); 
