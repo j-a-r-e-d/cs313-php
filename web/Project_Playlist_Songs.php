@@ -26,10 +26,11 @@
 	<div id="results">
 		<?php  
 			$statement = $db->query('
-				SELECT a.title Album,s.title Song 
+				SELECT r.artistname Artist,a.title Album,s.title Song 
 				FROM songs s
 				JOIN albums a ON a.albumid = s.albumid
-				ORDER BY Album,Song;
+				JOIN artist r ON r.artistid = a.artistid
+				ORDER BY Artist,Album,Song;
 				');
 			$results = $statement->fetchAll(PDO::FETCH_ASSOC);
 			$cnt = 0;
@@ -37,9 +38,10 @@
 			echo "ALBUM   "."|   SONGS<br>";
 			foreach ($results as $row) {
 				$cnt++;
+				$artistName = htmlentities($row['artist']); 
 				$songTitle = htmlentities($row["song"]);  
 				$albumTitle = htmlentities($row["album"]);
-				echo $cnt.'. '.'<span style="color:#777;">'.$albumTitle.'  -  '.$songTitle.'</span><br>';
+				echo $cnt.'. '.'<span style="color:#777;">'.$artistName.' | '.$albumTitle.'  -  '.$songTitle.'</span><br>';
 			}
 		?>
 	</div>
