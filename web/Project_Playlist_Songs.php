@@ -24,7 +24,24 @@
 		</a>
 	</div>
 	<div id="results">
-		Results for songs go here.
+		<?php  
+			$statement = $db->query('
+				SELECT a.title,s.title 
+				FROM songs s
+				JOIN albums a ON a.albumid = s.albumid
+				ORDER BY a.title,s.title;
+				');
+			$results = $statement->fetchAll(PDO::FETCH_ASSOC);
+			$cnt = 0;
+			//print_r($results);
+			echo "ALBUM   "."|   SONGS<br>";
+			foreach ($results as $row) {
+				$cnt++;
+				$songTitle = htmlentities($row['s.title']);  
+				$albumTitle = htmlentities($row['a.title']);
+				echo $cnt.'. '.'<span style="color:#777;">'.$albumTitle.'  -  '.$songTitle.'</span><br>';
+			}
+		?>
 	</div>
 
 	<script type="Project_Playlist.js"></script>
