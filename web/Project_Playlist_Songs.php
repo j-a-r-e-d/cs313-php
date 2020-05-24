@@ -29,7 +29,7 @@
 				SELECT r.artistname Artist,a.title Album,s.title Song 
 				FROM songs s
 				JOIN albums a ON a.albumid = s.albumid
-				JOIN artist r ON r.artistid = a.artistid
+				JOIN artists r ON r.artistid = a.artistid
 				ORDER BY Artist,Album,Song;
 				');
 			$results = $statement->fetchAll(PDO::FETCH_ASSOC);
