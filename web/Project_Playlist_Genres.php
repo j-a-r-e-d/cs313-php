@@ -32,7 +32,7 @@
 			
 		foreach ($genres as $genre) {
 			$description = $genre['description']; 
-			echo "<option value=""$description"">$description</option>";
+			echo '<option value="$description">$description</option>';
 		}
 
 		?>
