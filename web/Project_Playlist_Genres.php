@@ -2,12 +2,13 @@
 	require "DBConnection.php";
 	$db = get_db();
 
-	$query = '	SELECT description 
+	$query = '	SELECT genreid, description 
 				FROM genres
 				ORDER BY description;' ;
 	$stmt = $db->prepare($query);
 	$stmt->execute();
 	$genres = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -31,8 +32,9 @@
 		<?php
 			
 		foreach ($genres as $genre) {
+			$genreID = $genre['genreid'];
 			$description = $genre['description']; 
-			echo '<option value=\"'.$description.'\">'.$description.'</option>';
+			echo '<option value=\"'.$description.'\">'.$genreID.$description.'</option>';
 		}
 
 		?>
