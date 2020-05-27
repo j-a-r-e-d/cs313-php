@@ -29,7 +29,7 @@
 		<!-- <a href="Project_Playlist_Genres.php">
 			<input type="button" name="genres" value="Genres" id="genres">
 		</a> -->
-		<SELECT name="genres" id="genres">
+		<!-- <SELECT name="genres" id="genres">
 			<?php
 				
 			foreach ($genres as $genre) {
@@ -37,7 +37,7 @@
 				echo "Hey boo."												
 				//echo '<option value="$description">$description</option>';
 			?>
-		</SELECT>
+		</SELECT> -->
 		<a href="Project_Playlist_Artists.php">
 			<input type="button" name="artists" value="Artists" id="artists">
 		</a>
@@ -55,7 +55,7 @@
 	<div id="results">
 		<?php  
 			
-			
+			echo "This is the results section"
 		?>
 	</div>
 
