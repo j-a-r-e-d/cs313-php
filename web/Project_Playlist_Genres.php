@@ -34,8 +34,8 @@
 				
 			foreach ($genres as $genre) {
 				$description = $genre['description']; 
-																
-				echo '<option value="$description">$description</option>';
+				echo "Hey boo."												
+				//echo '<option value="$description">$description</option>';
 			?>
 		</SELECT>
 		<a href="Project_Playlist_Artists.php">
