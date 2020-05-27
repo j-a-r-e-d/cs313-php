@@ -34,7 +34,7 @@
 		foreach ($genres as $genre) {
 			$genreID = $genre['genreid'];
 			$description = $genre['description']; 
-			echo '<option value=\"'.$description.'\">'.$genreID.$description.'</option>';
+			echo '<option value=\"'.$description.'\">'.$genreID.' - '.$description.'</option>';
 		}
 
 		?>
