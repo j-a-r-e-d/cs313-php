@@ -28,14 +28,14 @@
 			<input type="button" name="genres" value="Genres" id="genres">
 		</a> -->
 		<SELECT name="genres" id="genres">
-<?php
-	
-foreach ($genres as $genre) {
-	$description = $genre['description']; 
-	echo "Hey boo."	;											
-	//echo '<option value="$description">$description</option>';
-}
-?>
+		<?php
+			
+		foreach ($genres as $genre) {
+			$description = $genre['description']; 
+			echo '<option value="$description">$description</option>';
+		}
+		
+		?>
 		</SELECT>
 		<a href="Project_Playlist_Artists.php">
 			<input type="button" name="artists" value="Artists" id="artists">
