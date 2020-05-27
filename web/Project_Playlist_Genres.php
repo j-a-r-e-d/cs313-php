@@ -7,7 +7,8 @@
 		FROM genres
 		ORDER BY description;
 		');
-	$stmt = $db->prepare($query)->execute();
+	$stmt = $db->prepare($query);
+	$stmt->execute();
 	$genres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -23,9 +24,7 @@
 		<h1>ROAD-TRIP PLAYLIST MAKER</h1>
 	</header>
 	<a href="Project_Playlist.html"><h3>Back to start page</h3></a>
-	<select>
-		
-	</select>
+
 	<div id="buttonMenu">
 		<!-- <a href="Project_Playlist_Genres.php">
 			<input type="button" name="genres" value="Genres" id="genres">
@@ -56,7 +55,7 @@
 	<div id="results">
 		<?php  
 			
-			}
+			
 		?>
 	</div>
 
