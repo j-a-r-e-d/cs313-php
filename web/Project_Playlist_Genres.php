@@ -2,14 +2,14 @@
 	require "DBConnection.php";
 	$db = get_db();
 
-	$query = $db->query('
-		SELECT description 
-		FROM genres
-		ORDER BY description;
-		');
-	$stmt = $db->prepare($query);
-	$stmt->execute();
-	$genres = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	// $query = $db->query('
+	// 	SELECT description 
+	// 	FROM genres
+	// 	ORDER BY description;
+	// 	');
+	// $stmt = $db->prepare($query);
+	// $stmt->execute();
+	// $genres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -32,9 +32,9 @@
 		<!-- <SELECT name="genres" id="genres">
 			<?php
 				
-			foreach ($genres as $genre) {
-				$description = $genre['description']; 
-				echo "Hey boo."												
+			//foreach ($genres as $genre) {
+				//$description = $genre['description']; 
+				//echo "Hey boo."												
 				//echo '<option value="$description">$description</option>';
 			?>
 		</SELECT> -->
@@ -53,10 +53,7 @@
 	</div>
 
 	<div id="results">
-		<?php  
-			
-			echo "This is the results section"
-		?>
+		<p>The results will go here.</p>
 	</div>
 
 	<script type="Project_Playlist.js"></script>
