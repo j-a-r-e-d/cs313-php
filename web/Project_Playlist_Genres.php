@@ -1,6 +1,14 @@
 <?php
 	require "DBConnection.php";
 	$db = get_db();
+
+	$query = $db->query('
+		SELECT description 
+		FROM genres
+		ORDER BY description;
+		');
+	$stmt = $db->prepare($query)->execute();
+	$genres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -15,10 +23,22 @@
 		<h1>ROAD-TRIP PLAYLIST MAKER</h1>
 	</header>
 	<a href="Project_Playlist.html"><h3>Back to start page</h3></a>
-	<div>
-		<a href="Project_Playlist_Genres.php">
+	<select>
+		
+	</select>
+	<div id="buttonMenu">
+		<!-- <a href="Project_Playlist_Genres.php">
 			<input type="button" name="genres" value="Genres" id="genres">
-		</a>
+		</a> -->
+		<SELECT name="genres" id="genres">
+			<?php
+				
+			foreach ($genres as $genre) {
+				$description = $genre['description']; 
+																
+				echo '<option value="$description">$description</option>';
+			?>
+		</SELECT>
 		<a href="Project_Playlist_Artists.php">
 			<input type="button" name="artists" value="Artists" id="artists">
 		</a>
@@ -35,7 +55,8 @@
 
 	<div id="results">
 		<?php  
-			echo "<p>List all Genres to choose from.</p>"
+			
+			}
 		?>
 	</div>
 
