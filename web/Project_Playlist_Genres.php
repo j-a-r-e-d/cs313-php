@@ -7,9 +7,9 @@
 		FROM genres
 		ORDER BY description;
 		');
-	$stmt = $db->prepare($query);
-	$stmt->execute();
-	$genres = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	// $stmt = $db->prepare($query);
+	// $stmt->execute();
+	// $genres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
