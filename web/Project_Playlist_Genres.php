@@ -2,14 +2,12 @@
 	require "DBConnection.php";
 	$db = get_db();
 
-	$query = $db->query('
-		SELECT description 
-		FROM genres
-		ORDER BY description;
-		');
-	// $stmt = $db->prepare($query);
-	// $stmt->execute();
-	// $genres = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	$query = '	SELECT description 
+				FROM genres
+				ORDER BY description;' ;
+	$stmt = $db->prepare($query);
+	$stmt->execute();
+	$genres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
