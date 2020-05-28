@@ -37,9 +37,9 @@
 			$genreID = $genre['genreid'];
 			$description = $genre['description']; 
 			if ($description == 'Undecided'){
-				echo '<option value=\"'.$description.'\" selected>'.$genreID.' - '.$description.'</option>';
+				echo '<option value=\"'.$description.'\" selected>'.$description.'</option>';
 			}else{
-				echo '<option value=\"'.$description.'\">'.$genreID.' - '.$description.'</option>';
+				echo '<option value=\"'.$description.'\">'.$description.'</option>';
 			}
 			
 		}
