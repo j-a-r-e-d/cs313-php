@@ -28,7 +28,7 @@
 		<!-- <a href="Project_Playlist_Genres.php">
 			<input type="button" name="genres" value="Genres" id="genres">
 		</a> -->
-		<SELECT name="genres" id="genres">
+		<SELECT name="genres" id="genres" value="Undecided">
 		<?php
 			
 		foreach ($genres as $genre) {
