@@ -1,5 +1,12 @@
-const getArtists = document.getElementById('artists');
-const getAlbums = document.getElementById('albums');
-const getSongs	= document.getElementById('songs');
+const artists = document.getElementById('artists');
+const albums = document.getElementById('albums');
+const songs	= document.getElementById('songs');
+const genres = document.getElementById('genres');
+const playlists = document.getElementById('playlists');
+
 let results = document.getElementById('results');
+
+genres.addEventListener('change', function(){
+	results.innerHTML = genre.value;
+})
 
