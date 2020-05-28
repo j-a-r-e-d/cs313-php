@@ -2,11 +2,11 @@
 	require "DBConnection.php";
 	$db = get_db();
 
-	$query = '	SELECT genreid, description 
+	$query = "	SELECT genreid, description 
 				FROM genres
 				UNION
-				SELECT 0,"Undecided"
-				ORDER BY description;' ;
+				SELECT 0,'Undecided'
+				ORDER BY description;" ;
 	$stmt = $db->prepare($query);
 	$stmt->execute();
 	$genres = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -36,10 +36,10 @@
 		foreach ($genres as $genre) {
 			$genreID = $genre['genreid'];
 			$description = $genre['description']; 
-			if (!$description == 'Undecided'){
-				echo '<option value=\"'.$description.'\">'.$genreID.' - '.$description.'</option>';
-			}else{
+			if ($description == 'Undecided'){
 				echo '<option value=\"'.$description.'\" selected>'.$genreID.' - '.$description.'</option>';
+			}else{
+				echo '<option value=\"'.$description.'\">'.$genreID.' - '.$description.'</option>';
 			}
 			
 		}
