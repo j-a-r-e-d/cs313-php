@@ -30,7 +30,7 @@
 		<!-- <a href="Project_Playlist_Genres.php">
 			<input type="button" name="genres" value="Genres" id="genres">
 		</a> -->
-		<SELECT name="genres" id="genres" value="Undecided">
+		<SELECT name="genres" id="genres">
 		<?php
 			
 		foreach ($genres as $genre) {
@@ -41,7 +41,6 @@
 			}else{
 				echo '<option value=\"'.$description.'\">'.$description.'</option>';
 			}
-			
 		}
 
 		?>
