@@ -4,6 +4,8 @@
 
 	$query = '	SELECT genreid, description 
 				FROM genres
+				UNION
+				SELECT 0,"Undecided"
 				ORDER BY description;' ;
 	$stmt = $db->prepare($query);
 	$stmt->execute();
