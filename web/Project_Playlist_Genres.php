@@ -34,7 +34,12 @@
 		foreach ($genres as $genre) {
 			$genreID = $genre['genreid'];
 			$description = $genre['description']; 
-			echo '<option value=\"'.$description.'\">'.$genreID.' - '.$description.'</option>';
+			if not ($description == 'Undecided'){
+				echo '<option value=\"'.$description.'\">'.$genreID.' - '.$description.'</option>';
+			}else{
+				echo '<option value=\"'.$description.'\" selected>'.$genreID.' - '.$description.'</option>';
+			}
+			
 		}
 
 		?>
