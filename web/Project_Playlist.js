@@ -6,7 +6,7 @@ const playlists = document.getElementById('playlists');
 
 let results = document.getElementById('results');
 
-genres.addEventListener('change', function(){
+genres.addEventListener('click', function(){
 	results.innerHTML = genre.value;
 })
 
