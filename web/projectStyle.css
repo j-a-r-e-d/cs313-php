@@ -34,3 +34,8 @@ a{
 table{
 	display: inline-table;
 }
+table h3{
+	color:tomato;
+	font-size: 1.5rem;
+	font-weight: 900;
+}
