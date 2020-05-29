@@ -40,13 +40,14 @@
 
 	<div id="results">
 		<?php  
-			$statement = $db->query('
+			$statement = $db->prepare('
 				SELECT r.artistName 
 				FROM artists r
 				JOIN albums a ON a.artistid = r.artistid
-				AND a.genreid = $genreID
-				ORDER BY artistName;
-			');
+				AND a.genreid = :id
+				ORDER BY artistName;');
+			$statement->bindValue(':id', $genreID, PDO::PARAM_INT);
+			$statement->execute();
 			$results = $statement->fetchAll(PDO::FETCH_ASSOC);
 			$cnt = 0;
 
