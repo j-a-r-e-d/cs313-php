@@ -81,8 +81,8 @@
 		<?php
 			
 		foreach ($albums as $album) {
-			$albumID = $album["a.albumid"];
-			$albumTitle = $album["a.title"]; 
+			$albumID = $album['albumid'];
+			$albumTitle = $album['title']; 
 			
 			echo "<tr><td><a href='Project_Playlist_Songs.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID$artistname=$artistname&albumID=$albumID&albumTitle=$albumTitle'>$albumTitle</a></td></tr>";
 		}
