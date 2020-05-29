@@ -28,7 +28,7 @@
 
 	// PREPARE STATEMENT
 	$statement = $db->prepare('
-		SELECT DISTINCT a.title, a.albumid 
+		SELECT a.albumid, a.title, 
 		FROM albums a
 		JOIN artists r ON r.artistid = a.artistid
 		AND r.artistid = :id
@@ -81,8 +81,8 @@
 		<?php
 			
 		foreach ($albums as $album) {
-			$albumID = $album['a.albumid'];
-			$albumTitle = $album['a.title']; 
+			$albumID = $album["a.albumid"];
+			$albumTitle = $album["a.title"]; 
 			
 			echo "<tr><td><a href='Project_Playlist_Songs.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID$artistname=$artistname&albumID=$albumID&albumTitle=$albumTitle'>$albumTitle</a></td></tr>";
 		}
