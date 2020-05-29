@@ -2,10 +2,13 @@
 	require "DBConnection.php";
 	$db = get_db();
 
+	// $query = "	SELECT genreid, description 
+	// 			FROM genres
+	// 			UNION
+	// 			SELECT 0,'Undecided'
+	// 			ORDER BY description;" ;
 	$query = "	SELECT genreid, description 
 				FROM genres
-				UNION
-				SELECT 0,'Undecided'
 				ORDER BY description;" ;
 	$stmt = $db->prepare($query);
 	$stmt->execute();
@@ -30,21 +33,22 @@
 		<!-- <a href="Project_Playlist_Genres.php">
 			<input type="button" name="genres" value="Genres" id="genres">
 		</a> -->
-		<SELECT name="genres" id="genres">
+		<table name="genres" id="genres">
+			<tr>
+				<th>Genres</th>
+			</tr>
 		<?php
 			
 		foreach ($genres as $genre) {
 			$genreID = $genre['genreid'];
 			$description = $genre['description']; 
-			if ($description == 'Undecided'){
-				echo '<option value=\"'.$description.'\" selected>'.$description.'</option>';
-			}else{
-				echo '<option value=\"'.$description.'\">'.$description.'</option>';
-			}
+			
+			echo '<tr><td>'.$description.'</td></tr>';
 		}
 
 		?>
-		</SELECT>
+
+		</table>
 		<a href="Project_Playlist_Artists.php">
 			<input type="button" name="artists" value="Artists" id="artists">
 		</a>
