@@ -32,7 +32,10 @@ a{
 }
 
 table{
-	display: inline-table;
+	border-collapse: collapse;
+}
+table, th{
+	border:2px solid #ccc;
 }
 th{
 	color: tomato;
