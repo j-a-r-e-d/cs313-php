@@ -73,9 +73,7 @@
 
 			foreach ($artists as $artist) {
 				$cnt++;
-				$artistName = $artist['artistname']; // I had to change column name (artistname) 
-												  // to all lowercase.
-				echo $cnt.'. $artistName<br>';
+				echo '$cnt. $artistname<br>';
 			}
 		?>
 	</div>
