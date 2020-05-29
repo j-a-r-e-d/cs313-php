@@ -34,8 +34,11 @@ a{
 table{
 	display: inline-table;
 }
-table h3{
-	color:tomato;
-	font-size: 1.5rem;
+th{
+	color: tomato;
+	font-size: 2rem;
 	font-weight: 900;
+}
+td{
+	color: #777;
 }

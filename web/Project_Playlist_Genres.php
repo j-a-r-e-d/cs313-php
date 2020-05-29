@@ -35,7 +35,7 @@
 		</a> -->
 		<table name="genres" id="genres">
 			<tr>
-				<th><h3>Genres</h3></th>
+				<th>Genres</th>
 			</tr>
 		<?php
 			
