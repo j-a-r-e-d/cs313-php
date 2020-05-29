@@ -41,7 +41,7 @@
 	<div id="results">
 		<?php  
 			$statement = $db->prepare('
-				SELECT r.artistName 
+				SELECT DISTINCT r.artistName 
 				FROM artists r
 				JOIN albums a ON a.artistid = r.artistid
 				AND a.genreid = :id
