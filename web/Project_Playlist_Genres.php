@@ -43,13 +43,13 @@
 			$genreID = $genre['genreid'];
 			$description = $genre['description']; 
 			
-			echo '<tr><td>'.$description.'</td></tr>';
+			echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID'>$description</a></td></tr>";
 		}
 
 		?>
 
 		</table>
-		<a href="Project_Playlist_Artists.php">
+		<!-- <a href="Project_Playlist_Artists.php">
 			<input type="button" name="artists" value="Artists" id="artists">
 		</a>
 		<a href="Project_Playlist_Albums.php">
@@ -60,7 +60,7 @@
 		</a>
 		<a href="Project_Playlist_Playlists.php">
 			<input type="button" name="playlists" value="Playlists" id="playlists">
-		</a>
+		</a> -->
 	</div>
 
 	<div id="results">
