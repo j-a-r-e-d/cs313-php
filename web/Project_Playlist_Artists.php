@@ -26,7 +26,6 @@
 	$statement->bindValue(':id', $genreID, PDO::PARAM_INT);
 	$statement->execute();
 	$artists = $statement->fetchAll(PDO::FETCH_ASSOC);
-	$cnt = 0;
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +62,7 @@
 			$artistID = $artist['artistid'];
 			$artistname = $artist['artistname']; 
 			
-			echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID'>$artistname</a></td></tr>";
+			echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID$artistname=$artistname'>$artistname</a></td></tr>";
 		}
 
 		?>
