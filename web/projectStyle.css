@@ -41,8 +41,8 @@ th{
 	color: tomato;
 	font-size: 2rem;
 	font-weight: 900;
+	text-align: left;
 }
 td{
 	color: #777;
-	padding-right: .5rem;
 }

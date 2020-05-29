@@ -48,7 +48,7 @@
 			</tr>
 		<?php
 			
-			echo "<tr><td>$genreDesc</td></tr>";
+			echo "<tr><td><span style='color:#ccc'>$genreDesc</span></td></tr>";
 
 		?>
 
