@@ -33,10 +33,11 @@ a{
 
 table{
 	border-collapse: collapse;
+	display: inline;
 }
-table, th{
+/*table, th{
 	border:2px solid #ccc;
-}
+}*/
 th{
 	color: tomato;
 	font-size: 2rem;
