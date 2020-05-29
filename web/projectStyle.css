@@ -19,6 +19,7 @@ input[type="button"]{
 	font-weight: 900;
 	font-size: 2rem;
 	background-color: #eee;
+	display: inline
 }
 
 input[type="button"]:hover{
