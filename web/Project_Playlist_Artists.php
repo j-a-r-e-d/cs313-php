@@ -62,7 +62,7 @@
 			$artistID = $artist['artistid'];
 			$artistname = $artist['artistname']; 
 			
-			echo "<a href='Project_Playlist_Albums.php'>Albums</a>"
+			echo "Albums"
 
 			// echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname'>$artistname</a></td></tr>";
 		}
