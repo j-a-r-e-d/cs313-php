@@ -37,9 +37,9 @@ table{
 	display: inline;
 	margin: 0 2rem;
 }
-/*table, th{
-	border:2px solid #ccc;
-}*/
+th,td{
+	text-align: center;
+}
 th{
 	color: tomato;
 	font-size: 2rem;
@@ -47,4 +47,5 @@ th{
 }
 td{
 	color: #777;
+
 }
