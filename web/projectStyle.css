@@ -37,9 +37,6 @@ table{
 	display: inline;
 	margin: 0 2rem;
 }
-th,td{
-	text-align: center;
-}
 th{
 	color: tomato;
 	font-size: 2rem;
@@ -47,5 +44,5 @@ th{
 }
 td{
 	color: #777;
-
+	padding-right: .5rem;
 }
