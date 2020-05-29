@@ -4,8 +4,13 @@
 	{
 		die("Error, genre id not specified...");
 	}
+	if (!isset($_GET['genreDesc']))
+	{
+		die("Error, genre description not specified...");
+	}
 	// ESCAPE ANY MALICIOUS CHARACTERS IN THE INPUT VARIABLE
 	$genreID = htmlspecialchars($_GET['genreID']);
+	$genreDesc = htmlspecialchars($_GET['genreDesc']);
 
 	//CONNECT TO THE DATABASE
 	require "DBConnection.php";
@@ -37,6 +42,17 @@
 	</header>
 	<a href="Project_Playlist.html"><h3>Back to start page</h3></a>
 	<div>
+		<table name="genres" id="genres">
+			<tr>
+				<th>Genres</th>
+			</tr>
+		<?php
+			
+			echo "<tr><td>$genreDesc</td></tr>";
+
+		?>
+
+		</table>
 		<table name="artists" id="artists">
 			<tr>
 				<th>Artists</th>
@@ -47,7 +63,7 @@
 			$artistID = $artist['artistid'];
 			$artistname = $artist['artistname']; 
 			
-			echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&artistID=$artistID'>$artistname</a></td></tr>";
+			echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID'>$artistname</a></td></tr>";
 		}
 
 		?>
@@ -68,14 +84,7 @@
  -->	</div>
 
 	<div id="results">
-		<?php  
-			
 
-			foreach ($artists as $artist) {
-				$cnt++;
-				echo '$cnt. $artistname<br>';
-			}
-		?>
 	</div>
 
 	<script type="Project_Playlist.js"></script>
