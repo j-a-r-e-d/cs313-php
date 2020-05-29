@@ -13,7 +13,7 @@
 
 	// PREPARE STATEMENT
 	$statement = $db->prepare('
-		SELECT DISTINCT r.artistName 
+		SELECT DISTINCT r.artistName, r.artistid 
 		FROM artists r
 		JOIN albums a ON a.artistid = r.artistid
 		AND a.genreid = :id
