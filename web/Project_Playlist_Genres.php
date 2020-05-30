@@ -43,7 +43,7 @@
 				<th>Genres</th>
 			</tr>
 		<?php
-		ChromePhp::log("The PHP console extension is working....");
+		clog("The PHP console extension is working....");
 		foreach ($genres as $genre) {
 			$genreID = $genre['genreid'];
 			$description = $genre['description']; 
