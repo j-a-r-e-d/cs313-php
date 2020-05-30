@@ -108,11 +108,15 @@
 		}
 
 		?>
-
+			<tr>
+				<td>
+					<a href="Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$genreDesc">
+						<input type="button" name="goBack" id="goBack" value="Go Back">
+					</a>
+				</td>
+			</tr>
 		</table>
-		<a href="Project_Playlist_Artists.php">
-			<input type="button" name="goBack" id="goBack" value="Go Back">
-		</a>
+		
 	</div>
 	<div id="results">
 		
