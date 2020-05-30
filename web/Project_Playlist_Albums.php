@@ -7,34 +7,34 @@
 	clog('ChromePhp has been included on Albums.php...');
 	clog('clog() has been declared');
 
-	// // ASSIGN VARIABLE
-	// if (!isset($_GET['genreID']))
-	// {
-	// 	die("Error, genre id not specified...");
-	// }
-	// if (!isset($_GET['genreDesc']))
-	// {
-	// 	die("Error, genre description not specified...");
-	// }
-	// if (!isset($_GET['artistID']))
-	// {
-	// 	die("Error, artist id not specified...");
-	// }
-	// if (!isset($_GET['artistname']))
-	// {
-	// 	die("Error, artist name not specified...");
-	// }
-	// // ESCAPE ANY MALICIOUS CHARACTERS IN THE INPUT VARIABLE
-	// $genreID = htmlspecialchars($_GET['genreID']);
-	// $genreDesc = htmlspecialchars($_GET['genreDesc']);
-	// $artistID = htmlspecialchars($_GET['artistID']);
-	// $artistname = htmlspecialchars($_GET['artistname']);
+	// ASSIGN VARIABLE
+	if (!isset($_GET['genreID']))
+	{
+		die("Error, genre id not specified...");
+	}
+	if (!isset($_GET['genreDesc']))
+	{
+		die("Error, genre description not specified...");
+	}
+	if (!isset($_GET['artistID']))
+	{
+		die("Error, artist id not specified...");
+	}
+	if (!isset($_GET['artistname']))
+	{
+		die("Error, artist name not specified...");
+	}
+	// ESCAPE ANY MALICIOUS CHARACTERS IN THE INPUT VARIABLE
+	$genreID = htmlspecialchars($_GET['genreID']);
+	$genreDesc = htmlspecialchars($_GET['genreDesc']);
+	$artistID = htmlspecialchars($_GET['artistID']);
+	$artistname = htmlspecialchars($_GET['artistname']);
 
-	// clog('All variables assigned...');
-	// clog('GenreID = '.$genreID);
-	// clog('GenreDesc = '.$genreDesc);
-	// clog('ArtistID = '.$artistID);
-	// clog('ArtistName = '.$artistname);
+	clog('All variables assigned...');
+	clog('GenreID = '.$genreID);
+	clog('GenreDesc = '.$genreDesc);
+	clog('ArtistID = '.$artistID);
+	clog('ArtistName = '.$artistname);
 
 	// //CONNECT TO THE DATABASE
 	// require "DBConnection.php";
