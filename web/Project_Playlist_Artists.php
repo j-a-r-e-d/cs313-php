@@ -1,6 +1,6 @@
 <?php
 	include 'ChromePhp.php';
-	ChromePhp::log('ChromePhp has been included...');
+	ChromePhp::log('ChromePhp has been included on Artists.php...');
 
 	// // ASSIGN VARIABLE
 	// if (!isset($_GET['genreID']))
@@ -15,7 +15,11 @@
 	// $genreID = htmlspecialchars($_GET['genreID']);
 	// $genreDesc = htmlspecialchars($_GET['genreDesc']);
 
+	$log($x) = {
+		ChromePhp::log($x);
+	}
 
+	$log('All variables declared');
 	// //CONNECT TO THE DATABASE
 	// require "DBConnection.php";
 	// $db = get_db();
