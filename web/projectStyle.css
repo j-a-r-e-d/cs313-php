@@ -26,19 +26,18 @@ input[type="button"]:hover{
 	color: white; 
 	font-weight: 900;
 }
-#goBack{
+
+input[type="button",id="goBack"]{
 	padding: 1rem 2rem;
-	/*margin: 1rem;*/
 	box-shadow: 0 .2rem .3rem #777;
 	border-radius: .4rem;
 	color: tomato;
-	/*font-weight: 900;*/
-	/*font-size: 1rem;*/
 	background-color: #eee;
 }
-#goBack:hover{
+
+input[type="button",id="goBack"]:hover{
 	background-color: tomato;
-	color: white;
+	color: white; 
 }
 
 a{
