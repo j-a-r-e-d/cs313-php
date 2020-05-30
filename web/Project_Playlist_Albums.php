@@ -36,9 +36,11 @@
 	clog('ArtistID = '.$artistID);
 	clog('ArtistName = '.$artistname);
 
-	// //CONNECT TO THE DATABASE
-	// require "DBConnection.php";
-	// $db = get_db();
+	//CONNECT TO THE DATABASE
+	require "DBConnection.php";
+	$db = get_db();
+
+	clog('connection to database successful...');
 
 	// // PREPARE STATEMENT
 	// $statement = $db->prepare('
