@@ -2,6 +2,9 @@
 	require "DBConnection.php";
 	$db = get_db();
 
+	// Include php file for commenting in console...
+	include 'ChromePhp.php';
+
 	// $query = "	SELECT genreid, description 
 	// 			FROM genres
 	// 			UNION
@@ -38,7 +41,7 @@
 				<th>Genres</th>
 			</tr>
 		<?php
-		console.log("The PHP console extension is working....")
+		ChromePhp::log("The PHP console extension is working....");
 		foreach ($genres as $genre) {
 			$genreID = $genre['genreid'];
 			$description = $genre['description']; 
