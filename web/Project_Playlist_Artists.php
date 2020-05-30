@@ -1,4 +1,4 @@
-<!--<?php
+<?php
 	// include 'ChromePhp.php';
 	// ChromePhp::log('ChromePhp has been included...');
 
@@ -31,7 +31,7 @@
 	// $statement->bindValue(':id', $genreID, PDO::PARAM_INT);
 	// $statement->execute();
 	// $artists = $statement->fetchAll(PDO::FETCH_ASSOC);
-?>-->
+?>
 
 <!DOCTYPE html>
 <html>
