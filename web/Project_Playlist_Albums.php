@@ -50,11 +50,12 @@
 		AND r.artistid = :id
 		ORDER BY a.title;');
 	$statement->bindValue(':id', $artistID, PDO::PARAM_INT);
-	// $statement->execute();
+	$statement->execute();
 	// $albums = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 	clog('statment created successfully...');
 	clog('bindValue successful...');
+	clog('execute() successful...');
 
 ?>
 <!DOCTYPE html>
