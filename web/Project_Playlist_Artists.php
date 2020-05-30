@@ -2,18 +2,18 @@
 	include 'ChromePhp.php';
 	ChromePhp::log('ChromePhp has been included...');
 
-	// ASSIGN VARIABLE
-	if (!isset($_GET['genreID']))
-	{
-		die("Error, genre id not specified...");
-	}
-	if (!isset($_GET['genreDesc']))
-	{
-		die("Error, genre description not specified...");
-	}
-	// ESCAPE ANY MALICIOUS CHARACTERS IN THE INPUT VARIABLE
-	$genreID = htmlspecialchars($_GET['genreID']);
-	$genreDesc = htmlspecialchars($_GET['genreDesc']);
+	// // ASSIGN VARIABLE
+	// if (!isset($_GET['genreID']))
+	// {
+	// 	die("Error, genre id not specified...");
+	// }
+	// if (!isset($_GET['genreDesc']))
+	// {
+	// 	die("Error, genre description not specified...");
+	// }
+	// // ESCAPE ANY MALICIOUS CHARACTERS IN THE INPUT VARIABLE
+	// $genreID = htmlspecialchars($_GET['genreID']);
+	// $genreDesc = htmlspecialchars($_GET['genreDesc']);
 
 
 	//CONNECT TO THE DATABASE
