@@ -49,11 +49,12 @@
 		JOIN artists r ON r.artistid = a.artistid
 		AND r.artistid = :id
 		ORDER BY a.title;');
-	// $statement->bindValue(':id', $artistID, PDO::PARAM_INT);
+	$statement->bindValue(':id', $artistID, PDO::PARAM_INT);
 	// $statement->execute();
 	// $albums = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 	clog('statment created successfully...');
+	clog('bindValue successful...');
 
 ?>
 <!DOCTYPE html>
