@@ -1,5 +1,4 @@
 <?php
-	console.log("console.log works in PHP!")
 
 	require "DBConnection.php";
 	$db = get_db();
