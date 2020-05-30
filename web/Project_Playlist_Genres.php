@@ -17,8 +17,8 @@
 	$stmt->execute();
 	$genres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-	function log($x){
-		ChromePhp::log($x);
+	function log(x){
+		ChromePhp::log(x);
 	}
 
 ?>
