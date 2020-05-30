@@ -56,7 +56,7 @@
 	clog('statment created successfully...');
 	clog('bindValue successful...');
 	clog('execute() successful...');
-	print_r($albums);
+	clog(print_r($albums));
 
 ?>
 <!DOCTYPE html>
@@ -73,7 +73,7 @@
 
 	<a href="Project_Playlist.html"><h3>Back to start page</h3></a>
 	<div>
-<!-- 		<table name="genres" id="genres">
+		<table name="genres" id="genres">
 			<tr>
 				<th>Genres</th>
 			</tr>
@@ -111,7 +111,7 @@
 		?>
 
 		</table>
- -->
+
 	</div>
 	<div id="results">
 		
