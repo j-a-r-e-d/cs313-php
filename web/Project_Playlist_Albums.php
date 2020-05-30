@@ -42,16 +42,18 @@
 
 	clog('connection to database successful...');
 
-	// // PREPARE STATEMENT
-	// $statement = $db->prepare('
-	// 	SELECT a.albumid, a.title, 
-	// 	FROM albums a
-	// 	JOIN artists r ON r.artistid = a.artistid
-	// 	AND r.artistid = :id
-	// 	ORDER BY a.title;');
-	// $statement->bindValue(':id', $artistID, PDO::PARAM_INT);
-	// $statement->execute();
-	// $albums = $statement->fetchAll(PDO::FETCH_ASSOC);
+	// PREPARE STATEMENT
+	$statement = $db->prepare('
+		SELECT a.albumid, a.title, 
+		FROM albums a
+		JOIN artists r ON r.artistid = a.artistid
+		AND r.artistid = :id
+		ORDER BY a.title;');
+	$statement->bindValue(':id', $artistID, PDO::PARAM_INT);
+	$statement->execute();
+	$albums = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+	clog('prepared statment created successfully...');
 
 ?>
 <!DOCTYPE html>
