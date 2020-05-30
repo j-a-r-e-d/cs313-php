@@ -27,7 +27,7 @@ input[type="button"]:hover{
 	font-weight: 900;
 }
 
-input[type="button",id="goBack"]{
+input[type="button"][id="goBack"]{
 	padding: 1rem 2rem;
 	box-shadow: 0 .2rem .3rem #777;
 	border-radius: .4rem;
@@ -35,7 +35,7 @@ input[type="button",id="goBack"]{
 	background-color: #eee;
 }
 
-input[type="button",id="goBack"]:hover{
+input[type="button"][id="goBack"]:hover{
 	background-color: tomato;
 	color: white; 
 }
