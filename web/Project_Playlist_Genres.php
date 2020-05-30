@@ -45,7 +45,8 @@
 			$description = $genre['description']; 
 			//echo "<a href='Project_Playlist_Artists.php' target='_blank'>Albums</a><br>";
 			echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$description'>$description</a></td></tr>";
-			ChromePhp::log('GenreID = '.$genreID.' GenreDesc = '.$description);
+			$text = 'GenreID = '.$genreID.' GenreDesc = '.$description
+			ChromePhp::log($test);
 		}
 
 		?>
