@@ -2,9 +2,11 @@
 	require "DBConnection.php";
 	$db = get_db();
 
-	// Include php file for commenting in console...
+	// Include php file for commenting in console and create a shorthand function for logging...
 	include 'ChromePhp.php';
-
+	function clog($x) { // 'clog' short for 'console log'
+		ChromePhp::log($x);
+	}
 	// $query = "	SELECT genreid, description 
 	// 			FROM genres
 	// 			UNION
@@ -17,9 +19,7 @@
 	$stmt->execute();
 	$genres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-	function clog($x) {
-		ChromePhp::log($x);
-	}
+
 
 ?>
 
