@@ -20,7 +20,8 @@
 	$genreID = htmlspecialchars($_GET['genreID']);
 	$genreDesc = htmlspecialchars($_GET['genreDesc']);
 
-	clog('All variables assigned...GenreID = '.$genreID);
+	clog('All variables assigned...');
+	clog('GenreID = '.$genreID);
 	clog('GenreDesc = '.$genreDesc);
 	// //CONNECT TO THE DATABASE
 	// require "DBConnection.php";
