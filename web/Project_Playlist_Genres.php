@@ -38,7 +38,7 @@
 				<th>Genres</th>
 			</tr>
 		<?php
-		console.log("console.log works in PHP!");	
+		console.log("The PHP console extension is working....")
 		foreach ($genres as $genre) {
 			$genreID = $genre['genreid'];
 			$description = $genre['description']; 
