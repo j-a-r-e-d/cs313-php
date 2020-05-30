@@ -1,6 +1,11 @@
 <?php
+	// Include php file for commenting in console and create a shorthand function for logging...
 	include 'ChromePhp.php';
-	ChromePhp::log('ChromePhp has been included on Artists.php...');
+	function clog($x) { // 'clog' short for 'console log'
+		ChromePhp::log($x);
+	}
+	
+	clog('ChromePhp has been included on Artists.php...');
 
 	// // ASSIGN VARIABLE
 	// if (!isset($_GET['genreID']))
