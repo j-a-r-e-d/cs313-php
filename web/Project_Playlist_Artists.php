@@ -80,6 +80,8 @@
 			echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname'>$artistname</a></td></tr>";
 		}
 
+		echo "<tr><td><a href='Project_Playlist_Genres.php'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
+
 		?>
 
 		</table>
