@@ -28,16 +28,19 @@
 	$db = get_db();
 	clog('connected to the database...');
 
-	// PREPARE STATEMENT
-	// $statement = $db->prepare('
-	// 	SELECT DISTINCT r.artistName, r.artistid 
-	// 	FROM artists r
-	// 	JOIN albums a ON a.artistid = r.artistid
-	// 	AND a.genreid = :id
-	// 	ORDER BY artistName;');
-	// $statement->bindValue(':id', $genreID, PDO::PARAM_INT);
-	// $statement->execute();
-	// $artists = $statement->fetchAll(PDO::FETCH_ASSOC);
+	//PREPARE STATEMENT
+	$statement = $db->prepare('
+		SELECT DISTINCT r.artistName, r.artistid 
+		FROM artists r
+		JOIN albums a ON a.artistid = r.artistid
+		AND a.genreid = :id
+		ORDER BY artistName;');
+	$statement->bindValue(':id', $genreID, PDO::PARAM_INT);
+	$statement->execute();
+	$artists = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+	clog('Prepared statement');
+	print_r($artists);
 ?>
 
 <!DOCTYPE html>
