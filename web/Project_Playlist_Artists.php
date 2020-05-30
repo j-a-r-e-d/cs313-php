@@ -12,10 +12,13 @@
 	$genreID = htmlspecialchars($_GET['genreID']);
 	$genreDesc = htmlspecialchars($_GET['genreDesc']);
 
+	console.log("All the variables panned out...");
+
 	//CONNECT TO THE DATABASE
 	require "DBConnection.php";
 	$db = get_db();
 
+	console.log("And the database connection worked....");
 	// PREPARE STATEMENT
 	$statement = $db->prepare('
 		SELECT DISTINCT r.artistName, r.artistid 
