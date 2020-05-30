@@ -1,5 +1,4 @@
 <?php
-
 	require "DBConnection.php";
 	$db = get_db();
 
@@ -39,7 +38,7 @@
 				<th>Genres</th>
 			</tr>
 		<?php
-			
+		console.log("console.log works in PHP!");	
 		foreach ($genres as $genre) {
 			$genreID = $genre['genreid'];
 			$description = $genre['description']; 
