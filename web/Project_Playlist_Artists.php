@@ -15,11 +15,11 @@
 	// $genreID = htmlspecialchars($_GET['genreID']);
 	// $genreDesc = htmlspecialchars($_GET['genreDesc']);
 
-	$log($x) = {
+	log($x) = {
 		ChromePhp::log($x);
 	}
 
-	$log('All variables declared');
+	log('All variables declared');
 	// //CONNECT TO THE DATABASE
 	// require "DBConnection.php";
 	// $db = get_db();
