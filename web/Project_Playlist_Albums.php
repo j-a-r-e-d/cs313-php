@@ -1,6 +1,10 @@
 <?php
 	include 'ChromePhp.php';
-	ChromePhp::log('ChromePhp has been included...');
+	function clog($x) { // 'clog' short for 'console log'
+		ChromePhp::log($x);
+	}
+
+	clog('ChromePhp has been included...');
 
 	// ASSIGN VARIABLE
 	if (!isset($_GET['genreID']))
@@ -24,6 +28,12 @@
 	$genreDesc = htmlspecialchars($_GET['genreDesc']);
 	$artistID = htmlspecialchars($_GET['artistID']);
 	$artistname = htmlspecialchars($_GET['artistname']);
+
+	clog('All variables assigned...');
+	clog('GenreID = '.$genreID);
+	clog('GenreDesc = '.$genreDesc);
+	clog('ArtistID = '.$artistID);
+	clog('ArtistName = '.$artistname);
 
 	//CONNECT TO THE DATABASE
 	require "DBConnection.php";
@@ -94,18 +104,6 @@
 
 		</table>
 
-		<!-- <a href="Project_Playlist_Artists.php">
-			<input type="button" name="artists" value="Artists" id="artists">
-		</a>
-		<a href="Project_Playlist_Albums.php">
-			<input type="button" name="albums" value="Albums" id="albums">
-		</a>
-		<a href="Project_Playlist_Songs.php">
-			<input type="button" name="songs" value="Songs" id="songs">
-		</a>
-		<a href="Project_Playlist_Playlists.php">
-			<input type="button" name="playlists" value="Playlists" id="playlists">
-		</a>	 -->
 	</div>
 	<div id="results">
 		

@@ -40,7 +40,7 @@
 	$artists = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 	clog('Prepared statement copmleted...');
-	print_r($artists);
+	//print_r($artists);
 ?>
 
 <!DOCTYPE html>
