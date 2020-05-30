@@ -1,6 +1,6 @@
 <?php
-	// include 'ChromePhp.php';
-	// ChromePhp::log('ChromePhp has been included...');
+	include 'ChromePhp.php';
+	ChromePhp::log('ChromePhp has been included...');
 
 	// // ASSIGN VARIABLE
 	// if (!isset($_GET['genreID']))
