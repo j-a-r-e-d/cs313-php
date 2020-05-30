@@ -44,7 +44,7 @@
 
 	// PREPARE STATEMENT
 	$statement = $db->prepare('
-		SELECT a.albumid, a.title, 
+		SELECT a.albumid, a.title 
 		FROM albums a
 		JOIN artists r ON r.artistid = a.artistid
 		AND r.artistid = :id
