@@ -4,23 +4,23 @@
 	function clog($x) { // 'clog' short for 'console log'
 		ChromePhp::log($x);
 	}
-	
+
 	clog('ChromePhp has been included on Artists.php...');
 
-	// // ASSIGN VARIABLE
-	// if (!isset($_GET['genreID']))
-	// {
-	// 	die("Error, genre id not specified...");
-	// }
-	// if (!isset($_GET['genreDesc']))
-	// {
-	// 	die("Error, genre description not specified...");
-	// }
-	// // ESCAPE ANY MALICIOUS CHARACTERS IN THE INPUT VARIABLE
-	// $genreID = htmlspecialchars($_GET['genreID']);
-	// $genreDesc = htmlspecialchars($_GET['genreDesc']);
+	// ASSIGN VARIABLE
+	if (!isset($_GET['genreID']))
+	{
+		die("Error, genre id not specified...");
+	}
+	if (!isset($_GET['genreDesc']))
+	{
+		die("Error, genre description not specified...");
+	}
+	// ESCAPE ANY MALICIOUS CHARACTERS IN THE INPUT VARIABLE
+	$genreID = htmlspecialchars($_GET['genreID']);
+	$genreDesc = htmlspecialchars($_GET['genreDesc']);
 
-	
+	clog('All variables assigned...');
 	// //CONNECT TO THE DATABASE
 	// require "DBConnection.php";
 	// $db = get_db();
