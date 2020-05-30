@@ -23,10 +23,10 @@
 	clog('All variables assigned...');
 	clog('GenreID = '.$genreID);
 	clog('GenreDesc = '.$genreDesc);
-	// //CONNECT TO THE DATABASE
-	// require "DBConnection.php";
-	// $db = get_db();
-	// ChromePhp::log('connected to the database...');
+	//CONNECT TO THE DATABASE
+	require "DBConnection.php";
+	$db = get_db();
+	clog('connected to the database...');
 
 	// PREPARE STATEMENT
 	// $statement = $db->prepare('
