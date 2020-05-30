@@ -1,6 +1,6 @@
-<?php
-	include 'ChromePhp.php';
-	ChromePhp::log('ChromePhp has been included...');
+<!--<?php
+	// include 'ChromePhp.php';
+	// ChromePhp::log('ChromePhp has been included...');
 
 	// // ASSIGN VARIABLE
 	// if (!isset($_GET['genreID']))
@@ -16,10 +16,10 @@
 	// $genreDesc = htmlspecialchars($_GET['genreDesc']);
 
 
-	//CONNECT TO THE DATABASE
-	require "DBConnection.php";
-	$db = get_db();
-	ChromePhp::log('connected to the database...');
+	// //CONNECT TO THE DATABASE
+	// require "DBConnection.php";
+	// $db = get_db();
+	// ChromePhp::log('connected to the database...');
 
 	// PREPARE STATEMENT
 	// $statement = $db->prepare('
@@ -31,7 +31,7 @@
 	// $statement->bindValue(':id', $genreID, PDO::PARAM_INT);
 	// $statement->execute();
 	// $artists = $statement->fetchAll(PDO::FETCH_ASSOC);
-?>
+?>-->
 
 <!DOCTYPE html>
 <html>
@@ -46,13 +46,13 @@
 	</header>
 	<a href="Project_Playlist.html"><h3>Back to start page</h3></a>
 	<div>
-		<table name="genres" id="genres">
+		<!-- <table name="genres" id="genres">
 			<tr>
 				<th>Genres</th>
 			</tr>
 		<?php
-			
-			//echo "<tr><td><span style='color:#ccc'>$genreDesc</span></td></tr>";
+			// Grey out and show the previously selected Genre for reference ....
+			echo "<tr><td><span style='color:#ccc'>$genreDesc</span></td></tr>";
 
 		?>
 
@@ -62,37 +62,23 @@
 				<th>Artists</th>
 			</tr>
 		<?php
+		// Show the list of Artists within the selected Genre...	
+		foreach ($artists as $artist) {
+			$artistID = $artist['artistid'];
+			$artistname = $artist['artistname']; 
 			
-		// foreach ($artists as $artist) {
-		// 	$artistID = $artist['artistid'];
-		// 	$artistname = $artist['artistname']; 
-			
-		// 	echo "Albums"
-
-			// echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname'>$artistname</a></td></tr>";
+			echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname'>$artistname</a></td></tr>";
 		}
 
 		?>
 
-		</table>
-<!-- 		<a href="Project_Playlist_Artists.php">
-			<input type="button" name="artists" value="Artists" id="artists">
-		</a>
-		<a href="Project_Playlist_Albums.php">
-			<input type="button" name="albums" value="Albums" id="albums">
-		</a>
-		<a href="Project_Playlist_Songs.php">
-			<input type="button" name="songs" value="Songs" id="songs">
-		</a>
-		<a href="Project_Playlist_Playlists.php">
-			<input type="button" name="playlists" value="Playlists" id="playlists">
-		</a>
- -->	</div>
+		</table> -->
+	</div>
 
 	<div id="results">
 
 	</div>
 
-	<script type="Project_Playlist.js"></script>
+	<!-- <script type="Project_Playlist.js"></script> -->
 </body>
 </html>

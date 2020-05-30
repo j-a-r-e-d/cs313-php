@@ -33,9 +33,7 @@
 	<a href="Project_Playlist.html"><h3>Back to start page</h3></a>
 
 	<div id="buttonMenu">
-		<!-- <a href="Project_Playlist_Genres.php">
-			<input type="button" name="genres" value="Genres" id="genres">
-		</a> -->
+
 		<table name="genres" id="genres">
 			<tr>
 				<th>Genres</th>
@@ -45,7 +43,7 @@
 		foreach ($genres as $genre) {
 			$genreID = $genre['genreid'];
 			$description = $genre['description']; 
-			echo "<a href='Project_Playlist_Artists.php' target='_blank'>Albums</a>";
+			echo "<a href='Project_Playlist_Artists.php' target='_blank'>Albums</a><br>";
 			//echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$description'>$description</a></td></tr>";
 		}
 
