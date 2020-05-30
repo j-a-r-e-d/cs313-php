@@ -19,17 +19,18 @@
 	//CONNECT TO THE DATABASE
 	require "DBConnection.php";
 	$db = get_db();
+	ChromePhp::log('connected to the database...');
 
 	// PREPARE STATEMENT
-	$statement = $db->prepare('
-		SELECT DISTINCT r.artistName, r.artistid 
-		FROM artists r
-		JOIN albums a ON a.artistid = r.artistid
-		AND a.genreid = :id
-		ORDER BY artistName;');
-	$statement->bindValue(':id', $genreID, PDO::PARAM_INT);
-	$statement->execute();
-	$artists = $statement->fetchAll(PDO::FETCH_ASSOC);
+	// $statement = $db->prepare('
+	// 	SELECT DISTINCT r.artistName, r.artistid 
+	// 	FROM artists r
+	// 	JOIN albums a ON a.artistid = r.artistid
+	// 	AND a.genreid = :id
+	// 	ORDER BY artistName;');
+	// $statement->bindValue(':id', $genreID, PDO::PARAM_INT);
+	// $statement->execute();
+	// $artists = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +52,7 @@
 			</tr>
 		<?php
 			
-			echo "<tr><td><span style='color:#ccc'>$genreDesc</span></td></tr>";
+			//echo "<tr><td><span style='color:#ccc'>$genreDesc</span></td></tr>";
 
 		?>
 
@@ -62,11 +63,11 @@
 			</tr>
 		<?php
 			
-		foreach ($artists as $artist) {
-			$artistID = $artist['artistid'];
-			$artistname = $artist['artistname']; 
+		// foreach ($artists as $artist) {
+		// 	$artistID = $artist['artistid'];
+		// 	$artistname = $artist['artistname']; 
 			
-			echo "Albums"
+		// 	echo "Albums"
 
 			// echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname'>$artistname</a></td></tr>";
 		}
