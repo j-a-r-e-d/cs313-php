@@ -45,8 +45,8 @@
 		foreach ($genres as $genre) {
 			$genreID = $genre['genreid'];
 			$description = $genre['description']; 
-			
-			echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$description'>$description</a></td></tr>";
+			echo "<a href='Project_Playlist_Artists.php' target='_blank'>Albums</a>";
+			//echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$description'>$description</a></td></tr>";
 		}
 
 		?>
