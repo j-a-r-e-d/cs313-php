@@ -39,7 +39,7 @@
 	$statement->execute();
 	$artists = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-	clog('Prepared statement');
+	clog('Prepared statement copmleted...');
 	print_r($artists);
 ?>
 
@@ -56,7 +56,7 @@
 	</header>
 	<a href="Project_Playlist.html"><h3>Back to start page</h3></a>
 	<div>
-		<!-- <table name="genres" id="genres">
+		<table name="genres" id="genres">
 			<tr>
 				<th>Genres</th>
 			</tr>
@@ -82,13 +82,13 @@
 
 		?>
 
-		</table> -->
+		</table>
 	</div>
 
 	<div id="results">
 
 	</div>
 
-	<!-- <script type="Project_Playlist.js"></script> -->
+	<script type="Project_Playlist.js"></script>
 </body>
 </html>
