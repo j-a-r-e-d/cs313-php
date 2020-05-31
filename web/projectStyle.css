@@ -15,14 +15,14 @@ h3[id="goBackHome"]{
 	/*background-color: #eee;*/
 	border:1px solid #777;
 	border-radius: .4rem;
-	box-shadow: 0 .2rem .3rem #777;
-	max-width: 240px;
+	/*box-shadow: 0 .2rem .3rem #777;*/
+	max-width: 210px;
 }
 
 input[type="button"]{
 	padding: 1rem 2rem;
 	margin: 1rem;
-	box-shadow: 0 .2rem .3rem #777;
+	/*box-shadow: 0 .2rem .3rem #777;*/
 	border-radius: .4rem;
 	color: tomato;
 	font-weight: 900;
@@ -41,7 +41,7 @@ input[type="button"][id="goBack"]{
 	margin:.5rem 0 0 0;
 	font-size: 1rem;
 	font-weight:400;
-	box-shadow: 0 .2rem .3rem #777;
+	/*box-shadow: 0 .2rem .3rem #777;*/
 	border-radius: .4rem;
 	color: tomato;
 	background-color: #eee;
