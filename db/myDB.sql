@@ -9,7 +9,7 @@ CREATE TABLE music_users (
    LoginName   VARCHAR(50) NOT NULL UNIQUE,
    AddressID   INT NOT NULL REFERENCES address (AddressID),
    Email       VARCHAR(50) NOT NULL UNIQUE,
-   GenreID     INT NOT NULL REFERENCES genres (GenreID),
+   favorite_genre_id     INT NULL REFERENCES genres (GenreID),
    travelMins  INT NOT NULL,
    DateCreated DATE NOT NULL,
    isDeleted   BOOLEAN NOT NULL
@@ -35,7 +35,7 @@ CREATE TABLE albums (
    albumID     SERIAL PRIMARY KEY,
    title       VARCHAR(100) NOT NULL,
    releaseDate DATE NOT NULL,
-   minutes     INT NOT NULL CHECK (minutes > 0),
+   seconds     INT NOT NULL CHECK (seconds > 0),
    artistID    INT NOT NULL REFERENCES artists (artistID),
    GenreID     INT NOT NULL REFERENCES genres (GenreID),
    DateCreated DATE NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE songs (
    songID      SERIAL PRIMARY KEY,
    title       VARCHAR(100) NOT NULL,
    albumID     INT NOT NULL REFERENCES albums (albumID),
-   minutes     INT NOT NULL CHECK (minutes > 0),
+   seconds     INT NOT NULL CHECK (seconds > 0),
    DateCreated DATE NOT NULL,
    isDeleted   BOOLEAN NOT NULL
 );
@@ -62,6 +62,14 @@ CREATE TABLE favorites (
    favoriteID  SERIAL PRIMARY KEY,
    songID      INT NOT NULL REFERENCES songs (songID),
    UserID      INT NOT NULL REFERENCES music_users (UserID),
+   DateCreated DATE NOT NULL,
+   isDeleted   BOOLEAN NOT NULL
+);
+
+CREATE TABLE playlists (
+   playlistID  serial PRIMARY KEY,
+   UserID      INT NOT NULL REFERENCES music_users (UserID),
+   duration    INT NOT NULL CHECK (duration > 0),
    DateCreated DATE NOT NULL,
    isDeleted   BOOLEAN NOT NULL
 );
