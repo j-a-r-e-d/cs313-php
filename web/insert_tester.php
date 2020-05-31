@@ -1,10 +1,10 @@
-<?php
+<!-- <?php
 	include ChromePhp.php;
 	require DBConnection.php;
 	$db = get_db();
 
 
-?>
+?> -->
 <!DOCTYPE html>
 <html>
 <head>
