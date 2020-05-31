@@ -16,6 +16,7 @@ h3[id="goBackHome"]{
 	border:1px solid #777;
 	border-radius: .4rem;
 	box-shadow: 0 .2rem .3rem #777;
+	max-width: 200px;
 }
 
 input[type="button"]{
