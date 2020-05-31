@@ -13,10 +13,10 @@ h3[id="goBackHome"]{
 	margin-left: 1rem;
 	padding: .5rem 2rem;
 	/*background-color: #eee;*/
-	border:1px solid #777;
+	border:2px solid #ccc;
 	border-radius: .4rem;
 	/*box-shadow: 0 .2rem .3rem #777;*/
-	max-width: 210px;
+	max-width: 220px;
 }
 
 input[type="button"]{
