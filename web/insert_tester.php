@@ -1,10 +1,14 @@
-<!-- <?php
+<?php
 	include ChromePhp.php;
-	require DBConnection.php;
-	$db = get_db();
+	// require DBConnection.php;
+	// $db = get_db();
 
+	function clog($x) {
+		ChromePhp::log($x);
+	}
 
-?> -->
+	clog('ChromePhp.php included successfully...');
+?>
 <!DOCTYPE html>
 <html>
 <head>
