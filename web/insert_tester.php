@@ -1,7 +1,17 @@
 <?php
 include 'ChromePhp.php';
 ChromePhp::log('ChromePhp included successfully');
-echo "console.log('ChromePhp.php added successfully...')";
+
+function clog($x) {
+	ChromePhp::log($x);
+}
+
+clog('clog() function setup and ready to rock-n-roll!');
+
+require 'DBConnection.php';
+$db = get_db();
+
+clog('Database connection completed....');
 ?>
 <!DOCTYPE html>
 <html>
