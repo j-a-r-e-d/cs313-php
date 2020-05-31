@@ -3,16 +3,18 @@
 	function clog($x) { // 'clog' short for 'console log'
 		ChromePhp::log($x);
 	}
-	// // Convert seconds to Human Readable time
-	// function secToHR($seconds) {
-	//   $hours = floor($seconds / 3600);
-	//   $minutes = floor(($seconds / 60) % 60);
-	//   $seconds = $seconds % 60;
-	//   return "$hours:$minutes:$seconds";
-	// }
 
-	// clog('ChromePhp has been included on Songs.php...');
-	// clog('clog() has been declared');
+	// Convert seconds to Human Readable time
+	function secToHR($seconds) {
+	  $hours = floor($seconds / 3600);
+	  $minutes = floor(($seconds / 60) % 60);
+	  $seconds = $seconds % 60;
+	  return "$hours:$minutes:$seconds";
+	}
+
+	clog('ChromePhp has been included on Songs.php...');
+	clog('clog() has been declared');
+	clog('secToHR() created successfully');
 
 	// // ASSIGN VARIABLE
 	// if (!isset($_GET['genreID']))
