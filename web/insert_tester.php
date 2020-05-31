@@ -27,12 +27,14 @@ $statement->bindValue(':user_DOB',$user_DOB,PDO::PARAM_STR);
 $statement->bindValue(':user_email',$user_email,PDO::PARAM_STR);
 $statement->execute();
 
+clog('Prepared statement copmleted...');
+
+// QUERY TO GET RESULTS - NO PREPARED STATEMENT NEEDED.
 $query = $db->query('
 	SELECT insert_tester_id,user_name, user_dob,user_email
 	FROM insert_tester');
 $results = $query->fetchAll(PDO::FETCH_ASSOC);
 
-clog('Prepared statement copmleted...');
 ?>
 <!DOCTYPE html>
 <html>

@@ -15,9 +15,35 @@
 		</div>
 	</header>
 	<div>
-		<a href="Project_Playlist_Genres.php">
-			<input type="button" name="genres" value="Start here" id="genres">
-		</a>
+		<!-- CHANGE FORM METHOD TO 'POST' BEFORE DEPLOYING... -->
+		<form action="Project_Playlist_Genres.php" method="GET">
+			<fieldset>
+				<legend>User Information</legend>
+				<label for="firstName">First name: </label>
+				<input type="text" name="firstName" id="firstName" required>
+				<br>
+				<label for="lastName">Last name: </label>
+				<input type="text" name="lastName" id="lastName" required>
+				<br>
+				<label for="loginName">Username: </label>
+				<input type="text" name="loginName" id="loginName" required>
+				<br>
+				<label for="city">City: </label>
+				<input type="text" name="city" id="city" required>
+				<br>
+				<label for="state">State: </label>
+				<input type="text" name="state" id="state" placeholder="Ex: AL" required>
+				<br>
+				<label for="email">Email: </label>
+				<input type="email" name="email" id="email" required>
+				<br>
+				<label for="travelTime">Travel time: </label>
+				<input type="number" name="travelTime" id="travelTime" placeholder="(minutes)" required>
+				<br>
+
+				<input type="submit" name="submit" value="Start here" id="genres">
+			</fieldset>		
+		</form>
 		<!-- <a href="Project_Playlist_Artists.php">
 			<input type="button" name="artists" value="Artists" id="artists">
 		</a>

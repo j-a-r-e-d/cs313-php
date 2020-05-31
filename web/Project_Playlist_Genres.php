@@ -8,6 +8,86 @@
 		ChromePhp::log($x);
 	}
 
+	// CHECK AND ASSIGN VARIABLES...
+	if (!isset($_GET['firstName']))
+	{
+		die("Error, first name not specified...");
+	}
+	if (!isset($_GET['lastName']))
+	{
+		die("Error, last name not specified...");
+	}
+	if (!isset($_GET['loginName']))
+	{
+		die("Error, login name not specified...");
+	}
+	if (!isset($_GET['city']))
+	{
+		die("Error, city not specified...");
+	}
+	if (!isset($_GET['state']))
+	{
+		die("Error, state not specified...");
+	}
+	if (!isset($_GET['email']))
+	{
+		die("Error, email not specified...");
+	}
+	if (!isset($_GET['travelTime']))
+	{
+		die("Error, travel time not specified...");
+	}
+
+	$firstName = htmlspecialchars($_GET['firstName']);
+	$lastName = htmlspecialchars($_GET['lastName']);
+	$loginName = htmlspecialchars($_GET['loginName']);
+	$city = htmlspecialchars($_GET['city']);
+	$state = htmlspecialchars($_GET['state']);
+	$email = htmlspecialchars($_GET['email']);
+	$travelTime = htmlspecialchars($_GET['travelTime']);
+
+	// INSERT ALL THE USER INFORMATION....
+	// Address insert
+	$insert_address_stmt = $db->prepare('
+		INSERT INTO address (city,stateid,datecreated,isdeleted)
+		VALUES (
+		:city,
+		(SELECT stateid FROM states WHERE statecode = :state), 
+		date(now()),
+		'f'
+		);');
+	$insert_address_stmt->bindValue(':city', $city, PDO::PARAM_STR);
+	$insert_address_stmt->bindValue(':state',$state,PDO::PARAM_STR);
+	$insert_address_stmt->execute();
+	// User insert
+	$insert_user_stmt = $db->prepare('
+		INSERT INTO music_users (
+		firstname,
+		lastname,
+		loginname,
+		addressid,
+		email,
+		travelmins,
+		datecreated,
+		isdeleted)
+		VALUES (
+		:firstname,
+		:lastname,
+		:loginname,
+		(SELECT last_value FROM address_addressid_seq),
+		:email,
+		:travelmins, 
+		date(now()),
+		'f'
+		);');
+	$insert_user_stmt->bindValue(':firstname', $firstName, PDO::PARAM_STR);
+	$insert_user_stmt->bindValue(':lastname',$lastName,PDO::PARAM_STR);
+	$insert_user_stmt->bindValue(':loginname',$loginName,PDO::PARAM_STR);
+	$insert_user_stmt->bindValue(':email',$email,PDO::PARAM_STR);
+	$insert_user_stmt->bindValue(':travelmins',$travelTime,PDO::PARAM_INT);
+	$insert_user_stmt->execute();
+
+	// GET ALL THE GENRE DATA FROM THE DATABASE...
 	$query = "	SELECT genreid, description 
 				FROM genres
 				ORDER BY description;" ;
