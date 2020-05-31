@@ -16,46 +16,46 @@
 	clog('clog() has been declared');
 	clog('secToHR() created successfully');
 
-	// // ASSIGN VARIABLE
-	// if (!isset($_GET['genreID']))
-	// {
-	// 	die("Error, genre id not specified...");
-	// }
-	// if (!isset($_GET['genreDesc']))
-	// {
-	// 	die("Error, genre description not specified...");
-	// }
-	// if (!isset($_GET['artistID']))
-	// {
-	// 	die("Error, artist id not specified...");
-	// }
-	// if (!isset($_GET['artistname']))
-	// {
-	// 	die("Error, artist name not specified...");
-	// }
-	// if (!isset($_GET['albumID']))
-	// {
-	// 	die("Error, album id not specified...");
-	// }
-	// if (!isset($_GET['albumTitle']))
-	// {
-	// 	die("Error, album title not specified...");
-	// }
-	// // ESCAPE ANY MALICIOUS CHARACTERS IN THE INPUT VARIABLE
-	// $genreID = htmlspecialchars($_GET['genreID']);
-	// $genreDesc = htmlspecialchars($_GET['genreDesc']);
-	// $artistID = htmlspecialchars($_GET['artistID']);
-	// $artistname = htmlspecialchars($_GET['artistname']);
-	// $albumID = htmlspecialchars($_GET['albumID']);
-	// $albumTitle = htmlspecialchars($_GET['albumTitle']);
+	// ASSIGN VARIABLE
+	if (!isset($_GET['genreID']))
+	{
+		die("Error, genre id not specified...");
+	}
+	if (!isset($_GET['genreDesc']))
+	{
+		die("Error, genre description not specified...");
+	}
+	if (!isset($_GET['artistID']))
+	{
+		die("Error, artist id not specified...");
+	}
+	if (!isset($_GET['artistname']))
+	{
+		die("Error, artist name not specified...");
+	}
+	if (!isset($_GET['albumID']))
+	{
+		die("Error, album id not specified...");
+	}
+	if (!isset($_GET['albumTitle']))
+	{
+		die("Error, album title not specified...");
+	}
+	// ESCAPE ANY MALICIOUS CHARACTERS IN THE INPUT VARIABLE
+	$genreID = htmlspecialchars($_GET['genreID']);
+	$genreDesc = htmlspecialchars($_GET['genreDesc']);
+	$artistID = htmlspecialchars($_GET['artistID']);
+	$artistname = htmlspecialchars($_GET['artistname']);
+	$albumID = htmlspecialchars($_GET['albumID']);
+	$albumTitle = htmlspecialchars($_GET['albumTitle']);
 
-	// clog('All variables assigned...');
-	// clog('GenreID = '.$genreID);
-	// clog('GenreDesc = '.$genreDesc);
-	// clog('ArtistID = '.$artistID);
-	// clog('ArtistName = '.$artistname);
-	// clog('AlbumID = '.$albumID);
-	// clog('AlbumTitle = '.$albumTitle);
+	clog('All variables assigned...');
+	clog('GenreID = '.$genreID);
+	clog('GenreDesc = '.$genreDesc);
+	clog('ArtistID = '.$artistID);
+	clog('ArtistName = '.$artistname);
+	clog('AlbumID = '.$albumID);
+	clog('AlbumTitle = '.$albumTitle);
 
 	// //CONNECT TO THE DATABASE
 	// require "DBConnection.php";
