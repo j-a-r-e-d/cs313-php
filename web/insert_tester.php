@@ -26,7 +26,11 @@ $statement->bindValue(':user_name', $user_name, PDO::PARAM_STR);
 $statement->bindValue(':user_DOB',$user_DOB,PDO::PARAM_STR);
 $statement->bindValue(':user_email',$user_email,PDO::PARAM_STR);
 $statement->execute();
-$results = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+$query = $db->query('
+	SELECT insert_tester_id,user_name, user_dob,user_email
+	FROM insert_tester');
+$results = $query->fetchAll(PDO::FETCH_ASSOC);
 
 clog('Prepared statement copmleted...');
 ?>
@@ -46,13 +50,14 @@ clog('Prepared statement copmleted...');
 			</tr>
 		<?php
 		foreach ($results as $row) {
+			$user_id = $row['insert_tester_id'];
 			$user_name = $row['user_name'];
 			$user_DOB = $row['user_dob'];
 			$user_email = $row['user_email'];
 			$cnt = 1; 
 			
 			
-			echo "<tr><td>$cnt. $user_name</td><td>$user_DOB</td><td>$user_email</td></tr>";
+			echo "<tr><td>$user_id</td><td>$user_name</td><td>$user_DOB</td><td>$user_email</td></tr>";
 
 			$cnt++;
 		}
