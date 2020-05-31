@@ -22,6 +22,10 @@ h3[id="goBackHome"]:hover{
 	background-color: #eee;
 }
 
+p[id="synopsis"]{
+	border:2px solid lightgrey;
+}
+
 input[type="button"]{
 	padding: 1rem 2rem;
 	margin: 1rem;
