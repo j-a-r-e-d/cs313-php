@@ -8,7 +8,7 @@
 	function secToHR($seconds) {
 	  $minutes = floor(($seconds / 60) % 60);
 	  $seconds = $seconds % 60;
-	  return "$hours:$minutes:$seconds";
+	  return "$minutes:$seconds";
 	}
 
 	clog('ChromePhp has been included on Songs.php...');
