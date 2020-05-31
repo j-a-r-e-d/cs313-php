@@ -64,6 +64,11 @@ clog('Prepared statement copmleted...');
 		?>
 			
 		</table>
+
+		<br>
+		<a href="insert_tester.html">
+			<input type="button" name="hompage" id="homepage" value="Insert more">
+		</a>
 	</p>
 </body>
 </html>
