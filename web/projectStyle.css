@@ -9,6 +9,12 @@ body{
 header{
 	margin:0 1rem;
 }
+h3[id="goBackHome"]{
+	margin-left: 1rem;
+	background-color: #eee;
+	border-radius: .4rem;
+	box-shadow: 0 .2rem .3rem #777;
+}
 
 input[type="button"]{
 	padding: 1rem 2rem;
