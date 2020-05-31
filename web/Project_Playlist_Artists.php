@@ -54,7 +54,7 @@
 	<header>
 		<h1>ROAD-TRIP PLAYLIST MAKER</h1>
 	</header>
-	<a href="Project_Playlist.html"><h3>Back to start page</h3></a>
+	<a href="Project_Playlist.html"><h3 id="goBackHome">Back to start page</h3></a>
 	<div>
 		<table name="genres" id="genres">
 			<tr>
