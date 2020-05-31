@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 	include ChromePhp.php;
 	// require DBConnection.php;
 	// $db = get_db();
@@ -8,7 +8,7 @@
 	}
 
 	clog('ChromePhp.php included successfully...');
-?>
+?> -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,9 @@
 </head>
 <body>
 	<p>
-		Create a FORM that will take user_name, user_DOB, and user_email input and insert it into the database.
+		<?php
+		echo 'Create a FORM that will take user_name, user_DOB, and user_email input and insert it into the database.';
+		?>
 	</p>
 </body>
 </html>
