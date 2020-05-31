@@ -92,6 +92,42 @@
 	</header>
 	<a href="Project_Playlist.html"><h3>Back to start page</h3></a>
 	<div>
+		<table name="genres" id="genres">
+			<tr>
+				<th>Genres</th>
+			</tr>
+		<?php
+			
+			echo "<tr><td><span style='color:#ccc'>$genreDesc</span></td></tr>";
+
+		?>
+
+		</table>
+		<table name="artists" id="artists">
+			<tr>
+				<th>Artists</th>
+			</tr>
+		<?php
+			
+			echo "<tr><td><span style='color:#ccc'>$artistname</span></td></tr>";
+
+		?>
+
+		</table>
+		<table name="albums" id="albums">
+			<tr>
+				<th>Albums</th>
+			</tr>
+		<?php
+			
+			echo "<tr><td><span style='color:#ccc'>$albumTitle</span></td></tr>";
+		?>
+			
+		</table>
+		<table name="songs" id="songs">
+			<tr>
+				<th>Songs</th>
+			</tr>
 		<?php  
 			$cnt = 0;
 			foreach ($albums as $album) {
@@ -102,6 +138,8 @@
 				echo "$cnt <span style='color:#777;'>$songTitle</span><span style='color:#777;'>   $runtime</span><br>";
 			}
 		?>
+		</table>
+		
 	</div>
 	<div id="results">
 		
