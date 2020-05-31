@@ -18,6 +18,9 @@ h3[id="goBackHome"]{
 	/*box-shadow: 0 .2rem .3rem #777;*/
 	max-width: 220px;
 }
+h3[id="goBackHome"]:hover{
+	background-color: #eee;
+}
 
 input[type="button"]{
 	padding: 1rem 2rem;
