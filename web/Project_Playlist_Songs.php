@@ -94,15 +94,14 @@
 	<a href="Project_Playlist.html"><h3>Back to start page</h3></a>
 	<div>
 		<?php  
-			// $cnt = 0;
-			// foreach ($albums as $album) {
-			// 	$cnt++;
-			// 	$songTitle = $album["song"];  
-			// 	$seconds = $album["seconds"];
-			// 	$runtime = secToHR($seconds);
-			// 	echo "$cnt <span style='color:#777;'>$songTitle</span><span style='color:#777;'>   $runtime</span><br>";
-			// }
-			echo "Peekaboo";
+			$cnt = 0;
+			foreach ($albums as $album) {
+				$cnt++;
+				$songTitle = $album["song"];  
+				$seconds = $album["seconds"];
+				$runtime = secToHR($seconds);
+				echo "$cnt <span style='color:#777;'>$songTitle</span><span style='color:#777;'>   $runtime</span><br>";
+			}
 		?>
 	</div>
 	<div id="results">
