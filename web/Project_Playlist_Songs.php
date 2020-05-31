@@ -69,7 +69,7 @@
 		FROM songs s
 		JOIN albums a ON a.albumid = s.albumid
 		JOIN artists r ON r.artistid = a.artistid
-		ORDER BY Song;');
+		ORDER BY song;');
 	$statement->bindValue(':id', $artistID, PDO::PARAM_INT);
 	$statement->execute();
 	$albums = $statement->fetchAll(PDO::FETCH_ASSOC);
