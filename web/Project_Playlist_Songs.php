@@ -135,8 +135,9 @@
 				$songTitle = $album["song"];  
 				$seconds = $album["seconds"];
 				$runtime = secToHR($seconds);
-				echo "$cnt <span style='color:#777;'>$songTitle</span><span style='color:#777;'>   $runtime</span><br>";
+				echo "<tr><td>$cnt. $songTitle    $runtime</td></tr>";
 			}
+			echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$genreDesc'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
 		?>
 		</table>
 		
