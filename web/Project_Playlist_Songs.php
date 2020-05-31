@@ -63,21 +63,21 @@
 
 	clog('connection to database successful...');
 
-	// // PREPARE STATEMENT
-	// $statement = $db->prepare('
-	// 	SELECT s.title song, s.seconds 
-	// 	FROM songs s
-	// 	JOIN albums a ON a.albumid = s.albumid
-	// 	JOIN artists r ON r.artistid = a.artistid
-	// 	ORDER BY Artist,Album,Song;');
-	// $statement->bindValue(':id', $artistID, PDO::PARAM_INT);
-	// $statement->execute();
-	// $albums = $statement->fetchAll(PDO::FETCH_ASSOC);
+	// PREPARE STATEMENT
+	$statement = $db->prepare('
+		SELECT s.title song, s.seconds 
+		FROM songs s
+		JOIN albums a ON a.albumid = s.albumid
+		JOIN artists r ON r.artistid = a.artistid
+		ORDER BY Artist,Album,Song;');
+	$statement->bindValue(':id', $artistID, PDO::PARAM_INT);
+	$statement->execute();
+	$albums = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-	// clog('statment created successfully...');
-	// clog('bindValue successful...');
-	// clog('execute() successful...');
-	// //clog(print_r($albums));
+	clog('statment created successfully...');
+	clog('bindValue successful...');
+	clog('execute() successful...');
+	//clog(print_r($albums));
 ?>
 
 <!DOCTYPE html>
