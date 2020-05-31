@@ -23,9 +23,10 @@ h3[id="goBackHome"]:hover{
 }
 
 div[id="synopsis"]{
-	border: 2px solid lightgrey;
+	border: 3px solid lightgrey;
 	/*color: red;*/
 	padding: 1rem;
+	border-radius: .5rem;
 }
 
 input[type="button"]{
