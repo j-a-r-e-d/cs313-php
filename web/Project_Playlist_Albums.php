@@ -105,7 +105,7 @@
 			$albumID = $album['albumid'];
 			$albumTitle = $album['title']; 
 			//echo "<tr><td><a href='Project_Playlist_Songs.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname&albumID=$albumID&albumTitle=$albumTitle'>$albumTitle</a></td></tr>";
-			echo "<tr><td><a href='Project_Playlist_Songs.php' target='_blank'>Songs</a></td></tr>";
+			echo "<tr><td><a href='Project_Playlist_Songs.php' target='_blank'>$albumTitle</a></td></tr>";
 		}
 		
 		echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$genreDesc'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
