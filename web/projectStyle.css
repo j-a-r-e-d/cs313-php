@@ -24,7 +24,7 @@ h3[id="goBackHome"]:hover{
 
 div[id="synopsis"]{
 	border: 2px solid lightgrey;
-	color: red;
+	/*color: red;*/
 	padding: 1rem;
 }
 
