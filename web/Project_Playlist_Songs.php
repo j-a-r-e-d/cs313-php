@@ -57,11 +57,11 @@
 	clog('AlbumID = '.$albumID);
 	clog('AlbumTitle = '.$albumTitle);
 
-	// //CONNECT TO THE DATABASE
-	// require "DBConnection.php";
-	// $db = get_db();
+	//CONNECT TO THE DATABASE
+	require "DBConnection.php";
+	$db = get_db();
 
-	// clog('connection to database successful...');
+	clog('connection to database successful...');
 
 	// // PREPARE STATEMENT
 	// $statement = $db->prepare('
