@@ -137,7 +137,7 @@
 				$runtime = secToHR($seconds);
 				echo "<tr><td>$cnt. $songTitle    $runtime</td></tr>";
 			}
-			echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$genreDesc'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
+			echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
 		?>
 		</table>
 		
