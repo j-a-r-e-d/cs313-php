@@ -71,7 +71,6 @@
 	</div>
 
 	<div id="results">
-		<p>The results will go here.</p>
 	</div>
 
 	<script type="Project_Playlist.js"></script>
