@@ -1,6 +1,7 @@
 <?php
 include 'ChromePhp.php';
 ChromePhp::log('ChromePhp included successfully');
+echo "console.log('ChromePhp.php added successfully...')";
 ?>
 <!DOCTYPE html>
 <html>
