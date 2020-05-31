@@ -90,7 +90,7 @@
 	<header>
 		<h1>ROAD-TRIP PLAYLIST MAKER</h1>
 	</header>
-	<a href="Project_Playlist.html"><h3>Back to start page</h3></a>
+	<span style="margin-left: 1rem;"><a href="Project_Playlist.html"><h3>Back to start page</h3></a></span>
 	<div>
 		<table name="genres" id="genres">
 			<tr>
