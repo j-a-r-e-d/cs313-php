@@ -63,12 +63,13 @@
 	$insert_address_stmt = $db->prepare("
 		INSERT INTO dupe_address (city,stateid,datecreated,isdeleted)
 		VALUES (:city,(SELECT stateid FROM states WHERE statecode = :state),date(now()),'f'	);");
-	// $insert_address_stmt->bindValue(':city', $city, PDO::PARAM_STR);
-	// $insert_address_stmt->bindValue(':state',$state,PDO::PARAM_STR);
-	// $insert_address_stmt->execute();
+	$insert_address_stmt->bindValue(':city', $city, PDO::PARAM_STR);
+	$insert_address_stmt->bindValue(':state',$state,PDO::PARAM_STR);
+	$insert_address_stmt->execute();
 
 	clog('prepare statement created...');
-	clog('Address insert completed...');
+	clog('bindValues set...');
+	clog('Address insert executed...');
 
 ?>
 <!DOCTYPE html>
