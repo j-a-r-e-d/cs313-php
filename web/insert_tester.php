@@ -1,15 +1,15 @@
-<?php
-	require "DBConnection.php";
-	$db = get_db();
+<?php 
+	// require "DBConnection.php";
+	// $db = get_db();
 
-	// Include php file for commenting in console and create a shorthand function for logging...
-	include 'ChromePhp.php';
-	function clog($x) { // 'clog' short for 'console log'
-		ChromePhp::log($x);
-	}
+	// // Include php file for commenting in console and create a shorthand function for logging...
+	// include 'ChromePhp.php';
+	// function clog($x) { // 'clog' short for 'console log'
+	// 	ChromePhp::log($x);
+	// }
 
-	clog('DB Connection completed...');
-	clog('clog() created....');
+	// clog('DB Connection completed...');
+	// clog('clog() created....');
 
 	// // CHECK AND ASSIGN VARIABLES...
 	// if (!isset($_GET['firstName']))
@@ -108,7 +108,7 @@
 	// $genres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 	// clog('Genres query executed and data fetched...');
-?>
+?> 
 
 <!DOCTYPE html>
 <html>
@@ -124,12 +124,11 @@
 	<a href="Project_Playlist.html"><h3 id="goBackHome">Back to start page</h3></a>
 
 	<div id="buttonMenu">
-
 		<table name="genres" id="genres">
 			<tr>
 				<th>Genres</th>
 			</tr>
-		<?php
+		<!-- <?php
 		// foreach ($genres as $genre) {
 		// 	$genreID = $genre['genreid'];
 		// 	$description = $genre['description']; 
@@ -138,16 +137,12 @@
 		// 	clog($text);
 		}
 
-		?>
+		?>-->
 
 		</table>
 		
 	</div>
 
-	<div id="results">
-	</div>
-
-	<script type="Project_Playlist.js"></script>
 </body>
 </html>
 
