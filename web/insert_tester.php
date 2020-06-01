@@ -56,7 +56,7 @@
 	// // INSERT ALL THE USER INFORMATION....
 	// // Address insert
 	// $insert_address_stmt = $db->prepare('
-	// 	INSERT INTO address (city,stateid,datecreated,isdeleted)
+	// 	INSERT INTO dupe_address (city,stateid,datecreated,isdeleted)
 	// 	VALUES (
 	// 	:city,
 	// 	(SELECT stateid FROM states WHERE statecode = :state), 
@@ -71,7 +71,7 @@
 
 	// // User insert
 	// $insert_user_stmt = $db->prepare('
-	// 	INSERT INTO music_users (
+	// 	INSERT INTO dupe_music_users (
 	// 	firstname,
 	// 	lastname,
 	// 	loginname,
