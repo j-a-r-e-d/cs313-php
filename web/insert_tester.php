@@ -1,4 +1,4 @@
-<?php 
+<!-- 
 	// require "DBConnection.php";
 	// $db = get_db();
 
@@ -108,7 +108,7 @@
 	// $genres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 	// clog('Genres query executed and data fetched...');
-?> 
+ -->
 
 <!DOCTYPE html>
 <html>
