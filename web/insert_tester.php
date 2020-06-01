@@ -58,6 +58,22 @@
 	clog('$email = '.$email);
 	clog('$travelTime = '.$travelTime);
 
+	// INSERT ALL THE USER INFORMATION....
+	// Address insert
+	$insert_address_stmt = $db->prepare('
+		INSERT INTO dupe_address (city,stateid,datecreated,isdeleted)
+		VALUES (
+		:city,
+		(SELECT stateid FROM states WHERE statecode = :state), 
+		date(now()),
+		'f'
+		);');
+	$insert_address_stmt->bindValue(':city', $city, PDO::PARAM_STR);
+	$insert_address_stmt->bindValue(':state',$state,PDO::PARAM_STR);
+	$insert_address_stmt->execute();
+
+	clog('Address insert completed...');
+
 ?>
 <!DOCTYPE html>
 <html>
