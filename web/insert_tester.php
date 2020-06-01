@@ -100,6 +100,16 @@
 
 	clog('User insert completed...');
 
+	// GET ALL THE GENRE DATA FROM THE DATABASE...
+	$query = "	SELECT genreid, description 
+				FROM genres
+				ORDER BY description;" ;
+	$stmt = $db->prepare($query);
+	$stmt->execute();
+	$genres = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	clog('Genres query executed and data fetched...');
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -117,7 +127,13 @@
 				<th>Genres</th>
 			</tr>
 			<?php
-
+			foreach ($genres as $genre) {
+				$genreID = $genre['genreid'];
+				$description = $genre['description']; 
+				echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$description'>$description</a></td></tr>";
+				$text = 'GenreID = '.$genreID.' GenreDesc = '.$description;
+				clog($text);
+			}
 			?>
 		</table>
 	</div>
