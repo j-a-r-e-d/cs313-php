@@ -1,3 +1,7 @@
+<?php
+	include 'ChromePhp.php';
+	require 'DBConnection.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +18,7 @@
 				<th>Genres</th>
 			</tr>
 			<?php
-			echo "this is where php will go"
+
 			?>
 		</table>
 	</div>
