@@ -121,7 +121,7 @@
 	<header>
 		<h1>ROAD-TRIP PLAYLIST MAKER</h1>
 	</header>
-	<a href="Project_Playlist.html"><h3 id="goBackHome">Back to start page</h3></a>
+	<a href="insert_tester.html"><h3 id="goBackHome">Back to start page</h3></a>
 
 	<div id="buttonMenu">
 		<table name="genres" id="genres">
