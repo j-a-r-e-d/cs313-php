@@ -13,6 +13,9 @@
 			<tr>
 				<th>Genres</th>
 			</tr>
+			<?php
+			echo "this is where php will go"
+			?>
 		</table>
 	</div>
 </body>
