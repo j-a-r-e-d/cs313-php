@@ -71,6 +71,35 @@
 	clog('bindValues set...');
 	clog('Address insert executed...');
 
+	// User insert
+	$insert_user_stmt = $db->prepare("
+		INSERT INTO dupe_music_users (
+		firstname,
+		lastname,
+		loginname,
+		addressid,
+		email,
+		travelmins,
+		datecreated,
+		isdeleted)
+		VALUES (
+		:firstname,
+		:lastname,
+		:loginname,
+		(SELECT last_value FROM address_addressid_seq),
+		:email,
+		:travelmins, 
+		date(now()),
+		'f'	);");
+	$insert_user_stmt->bindValue(':firstname', $firstName, PDO::PARAM_STR);
+	$insert_user_stmt->bindValue(':lastname',$lastName,PDO::PARAM_STR);
+	$insert_user_stmt->bindValue(':loginname',$loginName,PDO::PARAM_STR);
+	$insert_user_stmt->bindValue(':email',$email,PDO::PARAM_STR);
+	$insert_user_stmt->bindValue(':travelmins',$travelTime,PDO::PARAM_INT);
+	$insert_user_stmt->execute();
+
+	clog('User insert completed...');
+
 ?>
 <!DOCTYPE html>
 <html>
