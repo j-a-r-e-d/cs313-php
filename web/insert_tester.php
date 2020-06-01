@@ -40,6 +40,24 @@
 	}
 
 	clog('Input variable checked....');
+
+	$firstName = htmlspecialchars($_GET['firstName']);
+	$lastName = htmlspecialchars($_GET['lastName']);
+	$loginName = htmlspecialchars($_GET['loginName']);
+	$city = htmlspecialchars($_GET['city']);
+	$state = htmlspecialchars($_GET['state']);
+	$email = htmlspecialchars($_GET['email']);
+	$travelTime = htmlspecialchars($_GET['travelTime']);
+
+	clog('Variables assigned...');
+	clog('$firstName = '.$firstName);
+	clog('$lastName = '.$lastName);
+	clog('$loginName = '.$loginName);
+	clog('$city = '.$city);
+	clog('$state = '.$state);
+	clog('$email = '.$email);
+	clog('$travelTime = '.$travelTime);
+
 ?>
 <!DOCTYPE html>
 <html>
