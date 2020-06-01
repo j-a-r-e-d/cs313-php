@@ -61,10 +61,18 @@
 	// INSERT ALL THE USER INFORMATION....
 	// Address insert
 	$insert_address_stmt = $db->prepare("
-		with rows as (
 		INSERT INTO dupe_address (city,stateid,datecreated,isdeleted)
-		VALUES (:city,(SELECT stateid FROM states WHERE statecode = :state),date(now()),'f'	) 
-		RETURNING addressid AS returned_id)
+		VALUES (:city,(SELECT stateid FROM states WHERE statecode = :state),date(now()),'f'	);");
+	$insert_address_stmt->bindValue(':city', $city, PDO::PARAM_STR);
+	$insert_address_stmt->bindValue(':state',$state,PDO::PARAM_STR);
+	$insert_address_stmt->execute();
+
+	clog('prepare statement created...');
+	clog('bindValues set...');
+	clog('Address insert executed...');
+
+	// User insert
+	$insert_user_stmt = $db->prepare("
 		INSERT INTO dupe_music_users (
 		firstname,
 		lastname,
@@ -74,57 +82,21 @@
 		travelmins,
 		datecreated,
 		isdeleted)
-		SELECT (
+		VALUES (
 		:firstname,
 		:lastname,
 		:loginname,
-		returned_id,
+		(SELECT currval('dupe_address_addressid_seq')),
 		:email,
 		:travelmins, 
 		date(now()),
-		'f'	)
-		FROM row;");
-	// $insert_address_stmt->bindValue(':city', $city, PDO::PARAM_STR);
-	// $insert_address_stmt->bindValue(':state',$state,PDO::PARAM_STR);
-	// $insert_address_stmt->execute();
-	$insert_stmt->bindValue(':city', $city, PDO::PARAM_STR);
-	$insert_stmt->bindValue(':state',$state,PDO::PARAM_STR);
-	$insert_stmt->bindValue(':firstname', $firstName, PDO::PARAM_STR);
-	$insert_stmt->bindValue(':lastname',$lastName,PDO::PARAM_STR);
-	$insert_stmt->bindValue(':loginname',$loginName,PDO::PARAM_STR);
-	$insert_stmt->bindValue(':email',$email,PDO::PARAM_STR);
-	$insert_stmt->bindValue(':travelmins',$travelTime,PDO::PARAM_INT);
-	$insert_stmt->execute();
-	// clog('prepare statement created...');
-	// clog('bindValues set...');
-	// clog('Address insert executed...');
-
-	// // User insert
-	// $insert_user_stmt = $db->prepare("
-	// 	INSERT INTO dupe_music_users (
-	// 	firstname,
-	// 	lastname,
-	// 	loginname,
-	// 	addressid,
-	// 	email,
-	// 	travelmins,
-	// 	datecreated,
-	// 	isdeleted)
-	// 	VALUES (
-	// 	:firstname,
-	// 	:lastname,
-	// 	:loginname,
-	// 	(SELECT last_value FROM address_addressid_seq),
-	// 	:email,
-	// 	:travelmins, 
-	// 	date(now()),
-	// 	'f'	);");
-	// $insert_user_stmt->bindValue(':firstname', $firstName, PDO::PARAM_STR);
-	// $insert_user_stmt->bindValue(':lastname',$lastName,PDO::PARAM_STR);
-	// $insert_user_stmt->bindValue(':loginname',$loginName,PDO::PARAM_STR);
-	// $insert_user_stmt->bindValue(':email',$email,PDO::PARAM_STR);
-	// $insert_user_stmt->bindValue(':travelmins',$travelTime,PDO::PARAM_INT);
-	// $insert_user_stmt->execute();
+		'f'	);");
+	$insert_user_stmt->bindValue(':firstname', $firstName, PDO::PARAM_STR);
+	$insert_user_stmt->bindValue(':lastname',$lastName,PDO::PARAM_STR);
+	$insert_user_stmt->bindValue(':loginname',$loginName,PDO::PARAM_STR);
+	$insert_user_stmt->bindValue(':email',$email,PDO::PARAM_STR);
+	$insert_user_stmt->bindValue(':travelmins',$travelTime,PDO::PARAM_INT);
+	$insert_user_stmt->execute();
 
 	clog('User insert completed...');
 
