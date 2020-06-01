@@ -114,14 +114,14 @@
 <html>
 <head>
 	<title>Road-Trip Playlist Maker</title>
-	<link rel="stylesheet" href="projectStyle.css" />
+	<!-- <link rel="stylesheet" href="projectStyle.css" /> -->
 
 </head>
 <body>
 	<header>
 		<h1>ROAD-TRIP PLAYLIST MAKER</h1>
 	</header>
-	<a href="insert_tester.html"><h3 id="goBackHome">Back to start page</h3></a>
+	<!-- <a href="insert_tester.html"><h3 id="goBackHome">Back to start page</h3></a> -->
 
 	<div id="buttonMenu">
 		<table name="genres" id="genres">
