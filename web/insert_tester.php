@@ -1,6 +1,12 @@
 <?php
 	include 'ChromePhp.php';
 	require 'DBConnection.php';
+
+	function clog($x) {
+		ChromePhp::log($x);
+	}
+
+	clog('created clog() successfully...');
 ?>
 <!DOCTYPE html>
 <html>
