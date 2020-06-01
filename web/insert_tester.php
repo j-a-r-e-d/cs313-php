@@ -8,6 +8,38 @@
 	}
 
 	clog('created clog() successfully...');
+
+	// CHECK AND ASSIGN VARIABLES...
+	if (!isset($_GET['firstName']))
+	{
+		die("Error, first name not specified...");
+	}
+	if (!isset($_GET['lastName']))
+	{
+		die("Error, last name not specified...");
+	}
+	if (!isset($_GET['loginName']))
+	{
+		die("Error, login name not specified...");
+	}
+	if (!isset($_GET['city']))
+	{
+		die("Error, city not specified...");
+	}
+	if (!isset($_GET['state']))
+	{
+		die("Error, state not specified...");
+	}
+	if (!isset($_GET['email']))
+	{
+		die("Error, email not specified...");
+	}
+	if (!isset($_GET['travelTime']))
+	{
+		die("Error, travel time not specified...");
+	}
+
+	clog('Input variable checked....');
 ?>
 <!DOCTYPE html>
 <html>
