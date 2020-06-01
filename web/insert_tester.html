@@ -1,13 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Road-Trip Playlist Maker</title>
+	<link rel="stylesheet" href="projectStyle.css" />
+
+</head>
+<body>
+	<header>
+		<h1>ROAD-TRIP PLAYLIST MAKER (TEST)</h1>
+	</header>
+	<div>
+		<form action="Project_Playlist_Genres.php" method="GET">
+			<fieldset>
+				<legend>User Information</legend>
+				<label for="firstName">First name: </label>
+				<input type="text" name="firstName" id="firstName" required>
+				<br>
+				<label for="lastName">Last name: </label>
+				<input type="text" name="lastName" id="lastName" required>
+				<br>
+				<label for="loginName">Username: </label>
+				<input type="text" name="loginName" id="loginName" required>
+				<br>
+				<label for="city">City: </label>
+				<input type="text" name="city" id="city" required>
+				<br>
+				<label for="state">State: </label>
+				<input type="text" name="state" id="state" placeholder="Ex: AL" required>
+				<br>
+				<label for="email">Email: </label>
+				<input type="email" name="email" id="email" required>
+				<br>
+				<label for="travelTime">Travel time: </label>
+				<input type="number" name="travelTime" id="travelTime" placeholder="(minutes)" required>
+				<br>
+
+				<input type="submit" name="submit" value="Start here" id="genres">
+			</fieldset>		
+		</form>
+	</div>
+	<div id="results"></div>
+
+	<script type="Project_Playlist.js"></script>
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
 	<title>Database Insert Tester</title>
 </head>
 <body>
 	<p>
 		Create a FORM that will take user_name, user_DOB, and user_email input and insert it into the database.
 	</p>
-	<!-- Change the submit method to POST before completing -->
+	<!-Change the submit method to POST before completing ->
 	<form action="insert_tester.php" method="GET">
 		<fieldset>
 			<legend>User Information</legend>
@@ -24,4 +74,4 @@
 		</fieldset>		
 	</form>
 </body>
-</html>
+</html> -->
