@@ -1,8 +1,9 @@
 <?php
 	include 'ChromePhp.php';
 	require 'DBConnection.php';
+	$db = get_db();
 
-	function clog($x) {
+	function clog($x) { // 'clog' short for 'console log'
 		ChromePhp::log($x);
 	}
 
