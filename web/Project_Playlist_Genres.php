@@ -13,40 +13,47 @@
 	if (!isset($_GET['firstName']))
 	{
 		die("Error, first name not specified...");
+		clog("Error, first name not specified...");
 	}
 	if (!isset($_GET['lastName']))
 	{
 		die("Error, last name not specified...");
+		clog("Error, first name not specified...");
 	}
 	if (!isset($_GET['loginName']))
 	{
 		die("Error, login name not specified...");
+		clog("Error, first name not specified...");
 	}
 	if (!isset($_GET['city']))
 	{
 		die("Error, city not specified...");
+		clog("Error, first name not specified...");
 	}
 	if (!isset($_GET['state']))
 	{
 		die("Error, state not specified...");
+		clog("Error, first name not specified...");
 	}
 	if (!isset($_GET['email']))
 	{
 		die("Error, email not specified...");
+		clog("Error, first name not specified...");
 	}
 	if (!isset($_GET['travelTime']))
 	{
 		die("Error, travel time not specified...");
+		clog("Error, first name not specified...");
 	}
 
 	clog('Input variable checked....');
 
-	$firstName = htmlspecialchars($_GET['firstName']);
-	$lastName = htmlspecialchars($_GET['lastName']);
-	$loginName = htmlspecialchars($_GET['loginName']);
-	$city = htmlspecialchars($_GET['city']);
-	$state = htmlspecialchars($_GET['state']);
-	$email = htmlspecialchars($_GET['email']);
+	$firstName 	= htmlspecialchars($_GET['firstName']);
+	$lastName 	= htmlspecialchars($_GET['lastName']);
+	$loginName 	= htmlspecialchars($_GET['loginName']);
+	$city 		= htmlspecialchars($_GET['city']);
+	$state 		= htmlspecialchars($_GET['state']);
+	$email 		= htmlspecialchars($_GET['email']);
 	$travelTime = htmlspecialchars($_GET['travelTime']);
 
 	clog('Variables assigned...');

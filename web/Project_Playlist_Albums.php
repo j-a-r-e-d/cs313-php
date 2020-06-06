@@ -25,9 +25,9 @@
 		die("Error, artist name not specified...");
 	}
 	// ESCAPE ANY MALICIOUS CHARACTERS IN THE INPUT VARIABLE
-	$genreID = htmlspecialchars($_GET['genreID']);
-	$genreDesc = htmlspecialchars($_GET['genreDesc']);
-	$artistID = htmlspecialchars($_GET['artistID']);
+	$genreID 	= htmlspecialchars($_GET['genreID']);
+	$genreDesc 	= htmlspecialchars($_GET['genreDesc']);
+	$artistID 	= htmlspecialchars($_GET['artistID']);
 	$artistname = htmlspecialchars($_GET['artistname']);
 
 	clog('All variables assigned...');
