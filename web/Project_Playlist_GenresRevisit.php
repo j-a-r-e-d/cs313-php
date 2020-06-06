@@ -95,7 +95,7 @@
 			foreach ($genres as $genre) {
 				$genreID = $genre['genreid'];
 				$description = $genre['description']; 
-				echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$description'>$description</a></td></tr>";
+				echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$description&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime'>$description</a></td></tr>";
 				$text = 'GenreID = '.$genreID.' GenreDesc = '.$description;
 				clog($text);
 			}
