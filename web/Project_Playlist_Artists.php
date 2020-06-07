@@ -102,6 +102,7 @@
 <body>
 	<header>
 		<h1>ROAD-TRIP PLAYLIST MAKER</h1>
+		<h3>Welcome, <?php echo '$firstName. Pick an artist...'?></h3>
 	</header>
 	<a href="Project_Playlist.html"><h3 id="goBackHome">Back to start page</h3></a>
 	<div>
