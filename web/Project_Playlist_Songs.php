@@ -145,28 +145,28 @@
 						?>
 					</fieldset>
 					<?php  
-						$cnt = 0;
-						foreach ($albums as $album) {
-							$cnt++;
-							$songTitle = $album["song"];  
-							$seconds = $album["seconds"];
-							$runtime = secToHR($seconds);
-							echo "<li>$songTitle    $runtime</li>";
-						}
-						echo "<tr><td><a href=''></a></td></tr>"
-						echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
+						// $cnt = 0;
+						// foreach ($albums as $album) {
+						// 	$cnt++;
+						// 	$songTitle = $album["song"];  
+						// 	$seconds = $album["seconds"];
+						// 	$runtime = secToHR($seconds);
+						// 	echo "<li>$songTitle    $runtime</li>";
+						// }
+						// echo "<tr><td><a href=''></a></td></tr>"
+						// echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
 					?>
 					<!-- <ol>
 						<?php  
-							$cnt = 0;
-							foreach ($albums as $album) {
-								$cnt++;
-								$songTitle = $album["song"];  
-								$seconds = $album["seconds"];
-								$runtime = secToHR($seconds);
-								echo "<li>$songTitle    $runtime</li>";
+							// $cnt = 0;
+							// foreach ($albums as $album) {
+							// 	$cnt++;
+							// 	$songTitle = $album["song"];  
+							// 	$seconds = $album["seconds"];
+							// 	$runtime = secToHR($seconds);
+							// 	echo "<li>$songTitle    $runtime</li>";
 							}
-							echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
+							// echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
 						?>
 					</ol> -->
 				</td>
