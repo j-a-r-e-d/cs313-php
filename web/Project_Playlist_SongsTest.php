@@ -175,6 +175,24 @@
 			
 			echo "<tr><td><span style='color:#ccc'>$albumTitle</span></td></tr>";
 		?>
+		<table name="songs" id="songs">
+			<tr>
+				<th>Songs</th>
+			</tr>
+			<fieldset>
+				<legend>Songs selected</legend>
+				<?php  
+					$cnt = 0;
+					foreach ($albums as $album) {
+						$cnt++;
+						$songTitle = $album["song"];  
+						$seconds = $album["seconds"];
+						$runtime = secToHR($seconds);
+						echo "<input type='checkbox' name='songs' value='$songTitle'>$cnt. $songTitle - $runtime";
+					}
+				?>
+			</fieldset>
+		</table>
 		
 	</div>
 	<div id="results">
