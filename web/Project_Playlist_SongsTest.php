@@ -182,7 +182,7 @@
 			<tr>
 				<td>
 					<fieldset>
-						<legend>Songs selected</legend>
+						<!-- <legend>Songs selected</legend> -->
 						<?php  
 							$cnt = 0;
 							foreach ($albums as $album) {
