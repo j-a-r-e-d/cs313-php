@@ -142,7 +142,7 @@
 	$playlist = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 	clog('Query executed and data fetched...');
-	clog($playlist['Playlist']);
+	clog($playlist['playlist']);
 		
 	
 ?>
