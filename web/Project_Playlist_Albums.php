@@ -65,6 +65,12 @@
 		die("Error, travel time not specified...");
 		clog("Error, travel time not specified...");
 	}
+	if (!isset($_GET['playlistTitle']))
+	{
+		die("Error, playlist title not specified...");
+		clog("Error, playlist title not specified...");
+	}
+
 	// ESCAPE ANY MALICIOUS CHARACTERS IN THE INPUT VARIABLE
 	// Playlist variables
 	$genreID 	= htmlspecialchars($_GET['genreID']);
@@ -79,6 +85,7 @@
 	$state 		= htmlspecialchars($_GET['state']);
 	$email 		= htmlspecialchars($_GET['email']);
 	$travelTime = htmlspecialchars($_GET['travelTime']);
+	$playlistTitle = htmlspecialchars($_GET['playlistTitle']);
 
 	clog('All variables assigned...');
 	clog('GenreID = '.$genreID);
@@ -155,13 +162,13 @@
 		foreach ($albums as $album) {
 			$albumID = $album['albumid'];
 			$albumTitle = $album['title'];
-			// Parameters to include (13): genreID, genreDesc, artistID, artistname, albumID, albumTitle, firstName, 
+			// Parameters to include (14): genreID, genreDesc, artistID, artistname, albumID, albumTitle, firstName, 
 			// lastName, loginName, city, state, email, travelTime 
-			echo "<tr><td><a href='Project_Playlist_SongsTest.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname&albumID=$albumID&albumTitle=$albumTitle&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime'>$albumTitle</a></td></tr>";
+			echo "<tr><td><a href='Project_Playlist_SongsTest.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname&albumID=$albumID&albumTitle=$albumTitle&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime&playlistTitle=$playlistTitle'>$albumTitle</a></td></tr>";
 		}
-		// Parameters to include (9): genreID, genreDesc, firstName, lastName, loginName, city, state, email, 
+		// Parameters to include (10): genreID, genreDesc, firstName, lastName, loginName, city, state, email, 
 		// travelTime
-		echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$genreDesc&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
+		echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$genreDesc&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime&playlistTitle=$playlistTitle'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
 
 		?>
 			

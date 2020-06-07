@@ -83,6 +83,12 @@
 		die("Error, travel time not specified...");
 		clog("Error, travel time not specified...");
 	}
+	if (!isset($_GET['playlistTitle']))
+	{
+		die("Error, playlist title not specified...");
+		clog("Error, playlist title not specified...");
+	}
+
 	// ESCAPE ANY MALICIOUS CHARACTERS IN THE INPUT VARIABLE
 	// Playlist variables
 	$genreID 	= htmlspecialchars($_GET['genreID']);
@@ -99,6 +105,7 @@
 	$state 		= htmlspecialchars($_GET['state']);
 	$email 		= htmlspecialchars($_GET['email']);
 	$travelTime = htmlspecialchars($_GET['travelTime']);
+	$playlistTitle = htmlspecialchars($_GET['playlistTitle']);
 
 	clog('All variables assigned...');
 	clog('GenreID = '.$genreID);
@@ -107,6 +114,7 @@
 	clog('ArtistName = '.$artistname);
 	clog('AlbumID = '.$albumID);
 	clog('AlbumTitle = '.$albumTitle);
+	clog('PlaylistTitle = '.$playlistTitle);
 
 	//CONNECT TO THE DATABASE
 	require "DBConnection.php";
@@ -198,7 +206,7 @@
 			</tr>
 			<?php
 				// echo "<tr><td><a href='Project_Playlist_MyPlaylist.php?'><input type='button' id='myPlaylist' value='Add to playlist'></a></td></tr>"
-				echo "<tr><td><a href='Project_Playlist_MyPlaylist.php?'><input type='button' id='myPlaylist' value='Add to playlist'></a><br><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
+				echo "<tr><td><a href='Project_Playlist_MyPlaylist.php?'><input type='button' id='myPlaylist' value='Add to playlist'></a><br><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime&playlistTitle=$playlistTitle'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
 			?>
 		</table>
 		

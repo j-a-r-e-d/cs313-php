@@ -45,6 +45,11 @@
 		die("Error, travel time not specified...");
 		clog("Error, travel time not specified...");
 	}
+	if (!isset($_GET['playlistTitle']))
+	{
+		die("Error, playlist title not specified...");
+		clog("Error, playlist title not specified...");
+	}
 
 	clog('Input variable checked....');
 
@@ -55,6 +60,7 @@
 	$state 		= htmlspecialchars($_GET['state']);
 	$email 		= htmlspecialchars($_GET['email']);
 	$travelTime = htmlspecialchars($_GET['travelTime']);
+	$playlistTitle = htmlspecialchars($_GET['playlistTitle']);
 
 	clog('Variables assigned...');
 	clog('$firstName = '.$firstName);
@@ -64,6 +70,7 @@
 	clog('$state = '.$state);
 	clog('$email = '.$email);
 	clog('$travelTime = '.$travelTime);
+	clog('$playlistTitle = '.$playlistTitle);
 
 	// INSERT ALL THE USER INFORMATION....
 	// Address insert
@@ -107,6 +114,23 @@
 
 	clog('User insert completed...');
 
+	// Playlists insert
+	$insert_playlists_stmt = $db->prepare("
+		INSERT INTO playlists (
+		userid,
+		datecreated,
+		isdeleted,
+		title)
+		VALUES (
+		(SELECT currval('music_users_userid_seq')),
+		date(now()),
+		'f',
+		:playlistTitle);");
+	$insert_playlists_stmt->bindValue(':playlistTitle',$playlistTitle,PDO::PARAM_STR);
+	$insert_playlists_stmt->execute();
+
+	clog('Playlist insert completed...');
+
 	// GET ALL THE GENRE DATA FROM THE DATABASE...
 	$query = "	SELECT genreid, description 
 				FROM genres
@@ -138,7 +162,7 @@
 			foreach ($genres as $genre) {
 				$genreID = $genre['genreid'];
 				$description = $genre['description']; 
-				echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$description&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime'>$description</a></td></tr>";
+				echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$description&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime&playlistTitle=$playlistTitle'>$description</a></td></tr>";
 				$text = 'GenreID = '.$genreID.' GenreDesc = '.$description;
 				clog($text);
 			}

@@ -55,6 +55,11 @@
 		die("Error, travel time not specified...");
 		clog("Error, travel time not specified...");
 	}
+	if (!isset($_GET['playlistTitle']))
+	{
+		die("Error, playlist title not specified...");
+		clog("Error, playlist title not specified...");
+	}
 
 	// ESCAPE ANY MALICIOUS CHARACTERS IN THE INPUT VARIABLE
 	// Playlist variables
@@ -68,10 +73,12 @@
 	$state 		= htmlspecialchars($_GET['state']);
 	$email 		= htmlspecialchars($_GET['email']);
 	$travelTime = htmlspecialchars($_GET['travelTime']);
+	$playlistTitle = htmlspecialchars($_GET['playlistTitle']);
 
 	clog('All variables assigned...');
 	clog('GenreID = '.$genreID);
 	clog('GenreDesc = '.$genreDesc);
+	clog('PlaylistTitle = '.$playlistTitle);
 	//CONNECT TO THE DATABASE
 	require "DBConnection.php";
 	$db = get_db();
@@ -126,12 +133,12 @@
 		foreach ($artists as $artist) {
 			$artistID = $artist['artistid'];
 			$artistname = $artist['artistname']; 
-			// Parameters to include (11): genreID, genreDesc, artistID, artistname, firstName, lastName, loginName, 
+			// Parameters to include (12): genreID, genreDesc, artistID, artistname, firstName, lastName, loginName, 
 			// city, state, email, travelTime
-			echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime'>$artistname</a></td></tr>";
+			echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime&playlistTitle=$playlistTitle'>$artistname</a></td></tr>";
 		}
-		// Parameters to include (7): firstName, lastName, loginName, city, state, email, travelTime 
-		echo "<tr><td><a href='Project_Playlist_GenresRevisit.php?firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
+		// Parameters to include (8): firstName, lastName, loginName, city, state, email, travelTime 
+		echo "<tr><td><a href='Project_Playlist_GenresRevisit.php?firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime&playlistTitle=$playlistTitle'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
 		?>
 
 		</table>

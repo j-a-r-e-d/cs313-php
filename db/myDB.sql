@@ -69,9 +69,17 @@ CREATE TABLE favorites (
 CREATE TABLE playlists (
    playlistID  serial PRIMARY KEY,
    UserID      INT NOT NULL REFERENCES music_users (UserID),
-   duration    INT NOT NULL CHECK (duration > 0),
    DateCreated DATE NOT NULL,
    isDeleted   BOOLEAN NOT NULL
+);
+
+CREATE TABLE playlists_detail (
+   playlists_detail_id  SERIAL PRIMARY KEY,
+   playlistID           INT NOT NULL REFERENCES playlists (playlistID),
+   songID               INT NOT NULL REFERENCES songs (songID),
+   song_duration        INT NOT NULL,
+   DateCreated          DATE NOT NULL,
+   isDeleted            BOOLEAN NOT NULL
 );
 
 CREATE TABLE states (
