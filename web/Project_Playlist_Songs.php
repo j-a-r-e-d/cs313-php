@@ -134,14 +134,14 @@
 					<fieldset>
 						<legend>Songs selected</legend>
 						<?php  
-							$cnt = 0;
-							foreach ($albums as $album) {
-								$cnt++;
-								$songTitle = $album["song"];  
-								$seconds = $album["seconds"];
-								$runtime = secToHR($seconds);
-								echo "<input type='checkbox' name='songs' value='$songTitle'>$cnt. $songTitle - $runtime";
-							}
+							// $cnt = 0;
+							// foreach ($albums as $album) {
+							// 	$cnt++;
+							// 	$songTitle = $album["song"];  
+							// 	$seconds = $album["seconds"];
+							// 	$runtime = secToHR($seconds);
+							// 	echo "<input type='checkbox' name='songs' value='$songTitle'>$cnt. $songTitle - $runtime";
+							// }
 						?>
 					</fieldset>
 					<?php  
@@ -170,7 +170,6 @@
 						?>
 					</ol> -->
 				</td>
-				
 			</tr>
 		</table>
 		
