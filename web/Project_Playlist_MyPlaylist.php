@@ -181,6 +181,7 @@
 	<div id="results">
 		<?php  
 			var_dump($playlist);
+			echo "<br><br>";
 			print_r($playlist[0]);
 
 
