@@ -4,11 +4,29 @@
 		ChromePhp::log($x);
 	}
 
-	clog('ChromePhp has been included on Albums.php...');
+	// Convert seconds to Human Readable time
+	function secToHR($seconds) {
+	  $minutes = floor(($seconds / 60) % 60);
+	  $seconds = $seconds % 60;
+	  return "$minutes:$seconds";
+	}
+
+	clog('ChromePhp has been included on Songs.php...');
 	clog('clog() has been declared');
+	clog('secToHR() created successfully');
 
 	// ASSIGN VARIABLE
 	// Playlist variables
+	if (!isset($_GET['albumID']))
+	{
+		die("Error, album id not specified...");
+		clog("Error, album id not specified...");
+	}
+	if (!isset($_GET['albumTitle']))
+	{
+		die("Error, album title not specified...");
+		clog("Error, album title not specified...");
+	}
 	if (!isset($_GET['genreID']))
 	{
 		die("Error, genre id not specified...");
@@ -71,6 +89,8 @@
 	$genreDesc 	= htmlspecialchars($_GET['genreDesc']);
 	$artistID 	= htmlspecialchars($_GET['artistID']);
 	$artistname = htmlspecialchars($_GET['artistname']);
+	$albumID 	= htmlspecialchars($_GET['albumID']);
+	$albumTitle = htmlspecialchars($_GET['albumTitle']);
 	// User variables
 	$firstName 	= htmlspecialchars($_GET['firstName']);
 	$lastName 	= htmlspecialchars($_GET['lastName']);
@@ -85,6 +105,8 @@
 	clog('GenreDesc = '.$genreDesc);
 	clog('ArtistID = '.$artistID);
 	clog('ArtistName = '.$artistname);
+	clog('AlbumID = '.$albumID);
+	clog('AlbumTitle = '.$albumTitle);
 
 	//CONNECT TO THE DATABASE
 	require "DBConnection.php";
@@ -94,12 +116,12 @@
 
 	// PREPARE STATEMENT
 	$statement = $db->prepare('
-		SELECT a.albumid, a.title 
-		FROM albums a
-		JOIN artists r ON r.artistid = a.artistid
-		AND r.artistid = :id
-		ORDER BY a.title;');
-	$statement->bindValue(':id', $artistID, PDO::PARAM_INT);
+		SELECT s.title song, s.seconds 
+		FROM songs s
+		JOIN albums a ON a.albumid = s.albumid
+		AND s.albumid = :id
+		ORDER BY song;');
+	$statement->bindValue(':id', $albumID, PDO::PARAM_INT);
 	$statement->execute();
 	$albums = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -107,8 +129,8 @@
 	clog('bindValue successful...');
 	clog('execute() successful...');
 	//clog(print_r($albums));
-
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -119,9 +141,8 @@
 <body>
 	<header>
 		<h1>ROAD-TRIP PLAYLIST MAKER</h1>
-		<h3>Welcome, <?php echo $firstName.'. Pick an album...'?></h3>
+		<!-- <h3>Welcome, <?php //echo $firstName.". Select the songs youd like to add to your playlist..."?></h3> -->
 	</header>
-
 	<a href="Project_Playlist.html"><h3 id="goBackHome">Back to start page</h3></a>
 	<div>
 		<table name="genres" id="genres">
@@ -152,20 +173,8 @@
 			</tr>
 		<?php
 			
-		foreach ($albums as $album) {
-			$albumID = $album['albumid'];
-			$albumTitle = $album['title'];
-			// Parameters to include (13): genreID, genreDesc, artistID, artistname, albumID, albumTitle, firstName, 
-			// lastName, loginName, city, state, email, travelTime 
-			echo "<tr><td><a href='Project_Playlist_SongsTest.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname&albumID=$albumID&albumTitle=$albumTitle&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime'>$albumTitle</a></td></tr>";
-		}
-		// Parameters to include (9): genreID, genreDesc, firstName, lastName, loginName, city, state, email, 
-		// travelTime
-		echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$genreDesc&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
-
+			echo "<tr><td><span style='color:#ccc'>$albumTitle</span></td></tr>";
 		?>
-			
-		</table>
 		
 	</div>
 	<div id="results">
