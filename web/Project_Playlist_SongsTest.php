@@ -188,7 +188,7 @@
 						$songTitle = $album["song"];  
 						$seconds = $album["seconds"];
 						$runtime = secToHR($seconds);
-						echo "<input type='checkbox' name='songs' value='$songTitle'>$cnt. $songTitle - $runtime";
+						echo "<input type='checkbox' name='songs' value='$songTitle'>$cnt. $songTitle - $runtime<br>";
 					}
 				?>
 			</fieldset>
