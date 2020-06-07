@@ -198,7 +198,7 @@
 			</tr>
 			<?php
 				// echo "<tr><td><a href='Project_Playlist_MyPlaylist.php?'><input type='button' id='myPlaylist' value='Add to playlist'></a></td></tr>"
-				echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
+				echo "<tr><td><a href='Project_Playlist_MyPlaylist.php?'><input type='button' id='myPlaylist' value='Add to playlist'></a><br><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
 			?>
 		</table>
 		
