@@ -8,27 +8,77 @@
 	clog('clog() has been declared');
 
 	// ASSIGN VARIABLE
+	// Playlist variables
 	if (!isset($_GET['genreID']))
 	{
 		die("Error, genre id not specified...");
+		clog("Error, genre id not specified...");
 	}
 	if (!isset($_GET['genreDesc']))
 	{
 		die("Error, genre description not specified...");
+		clog("Error, genre description not specified...");
 	}
 	if (!isset($_GET['artistID']))
 	{
 		die("Error, artist id not specified...");
+		clog("Error, artist id not specified...");
 	}
 	if (!isset($_GET['artistname']))
 	{
 		die("Error, artist name not specified...");
+		clog("Error, artist name not specified...");
+	}
+	// User variables
+	if (!isset($_GET['firstName']))
+	{
+		die("Error, first name not specified...");
+		clog("Error, first name not specified...");
+	}
+	if (!isset($_GET['lastName']))
+	{
+		die("Error, last name not specified...");
+		clog("Error, last name not specified...");
+	}
+	if (!isset($_GET['loginName']))
+	{
+		die("Error, login name not specified...");
+		clog("Error, login name not specified...");
+	}
+	if (!isset($_GET['city']))
+	{
+		die("Error, city not specified...");
+		clog("Error, city not specified...");
+	}
+	if (!isset($_GET['state']))
+	{
+		die("Error, state not specified...");
+		clog("Error, state not specified...");
+	}
+	if (!isset($_GET['email']))
+	{
+		die("Error, email not specified...");
+		clog("Error, email not specified...");
+	}
+	if (!isset($_GET['travelTime']))
+	{
+		die("Error, travel time not specified...");
+		clog("Error, travel time not specified...");
 	}
 	// ESCAPE ANY MALICIOUS CHARACTERS IN THE INPUT VARIABLE
+	// Playlist variables
 	$genreID 	= htmlspecialchars($_GET['genreID']);
 	$genreDesc 	= htmlspecialchars($_GET['genreDesc']);
 	$artistID 	= htmlspecialchars($_GET['artistID']);
 	$artistname = htmlspecialchars($_GET['artistname']);
+	// User variables
+	$firstName 	= htmlspecialchars($_GET['firstName']);
+	$lastName 	= htmlspecialchars($_GET['lastName']);
+	$loginName 	= htmlspecialchars($_GET['loginName']);
+	$city 		= htmlspecialchars($_GET['city']);
+	$state 		= htmlspecialchars($_GET['state']);
+	$email 		= htmlspecialchars($_GET['email']);
+	$travelTime = htmlspecialchars($_GET['travelTime']);
 
 	clog('All variables assigned...');
 	clog('GenreID = '.$genreID);
@@ -104,10 +154,13 @@
 			
 		foreach ($albums as $album) {
 			$albumID = $album['albumid'];
-			$albumTitle = $album['title']; 
+			$albumTitle = $album['title'];
+			// Parameters to include (13): genreID, genreDesc, artistID, artistname, albumID, albumTitle, firstName, 
+			// lastName, loginName, city, state, email, travelTime 
 			echo "<tr><td><a href='Project_Playlist_Songs.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname&albumID=$albumID&albumTitle=$albumTitle'>$albumTitle</a></td></tr>";
 		}
-		
+		// Parameters to include (9): genreID, genreDesc, firstName, lastName, loginName, city, state, email, 
+		// travelTime
 		echo "<tr><td><a href='Project_Playlist_Artists.php?genreID=$genreID&genreDesc=$genreDesc'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
 
 		?>
