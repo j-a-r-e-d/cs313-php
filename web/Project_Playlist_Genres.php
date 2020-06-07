@@ -127,7 +127,7 @@
 <body>
 	<header>
 		<h1>ROAD-TRIP PLAYLIST MAKER</h1>
-		<!-- <h3>Welcome, <?php //echo $firstName.'. Pick your genre...'?></h3> -->
+		<h3>Welcome, <?php echo $firstName.'. Pick your genre...'?></h3>
 	</header>
 	<div id="buttonMenu">
 		<table name="genres" id="genres">
