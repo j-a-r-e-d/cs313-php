@@ -119,6 +119,29 @@
 	require "DBConnection.php";
 	$db = get_db();
 
+	// GET DATA FROM THE DATABASE...
+	$query = "	SELECT	p.title AS Playlist,
+						p.datecreated AS DateCreated,
+						COALESCE((	SELECT SUM(seconds) 
+									FROM songs 
+									JOIN playlists_detail pd ON pd.songid = s.songid 
+									JOIN playlists p ON p.playlistid = pd.playlistid
+									WHERE p.title = :playlistTitle),0) AS Playlist_Duration,
+						COALESCE(s.title,'') AS Song_Title,
+						s.seconds::VARCHAR(4) AS Song_Duration,
+						mu.firstname||' '||mu.lastname AS Created_By
+				FROM 	playlists 			p 
+				JOIN 	music_users 		mu ON 	mu.userid = p.userid
+				LEFT JOIN playlists_detail 	pd ON 	pd.playlistid = p.playlistid
+				LEFT JOIN songs 			s ON	s.songid = pd.songid 
+				WHERE 	p.isdeleted = 'f' AND
+						p.title = :playlistTitle;" ;
+	$stmt = $db->prepare($query);
+	$stmt->bindValue(':playlistTitle',$playlistTitle,PDO::PARAM_STR);
+	$stmt->execute();
+	$playlist = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	clog('Query executed and data fetched...');
 		
 	
 ?>
@@ -156,8 +179,8 @@
 
 	<div id="results">
 		<?php  
-			echo "<p>All selected songs for the playlist should go here. Also show TOTAL PLAY TIME, UserName, date created, and playlistTitle</p>";
-			echo $playlistTitle;
+			echo $playlist['playlist'];
+			
 
 		?>
 	</div>
