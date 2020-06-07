@@ -133,7 +133,7 @@
 <body>
 	<header>
 		<h1>ROAD-TRIP PLAYLIST MAKER</h1>
-		<h3>You're done! Enjoy your <?php echo $playlistTitle;?> on your road-trip.</h3>
+		<h3>You're done! Enjoy "<?php echo $playlistTitle;?>" on your road-trip.</h3>
 	</header>
 	<a href="Project_Playlist.html"><h3>Back to start page</h3></a>
 	<div>
@@ -156,8 +156,8 @@
 
 	<div id="results">
 		<?php  
-			echo "<p>All selected songs for the playlist should go here. Also show TOTAL PLAY TIME, UserName, date created, and playlistTitle</p>"
-			// echo "<h3>Title: $playlistTitle</h3>"
+			echo "<p>All selected songs for the playlist should go here. Also show TOTAL PLAY TIME, UserName, date created, and playlistTitle</p>";
+			echo "<h3>Title: ".$playlistTitle"</h3>";
 
 		?>
 	</div>
