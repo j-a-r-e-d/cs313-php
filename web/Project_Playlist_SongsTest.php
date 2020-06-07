@@ -131,7 +131,7 @@
 		ORDER BY song;');
 	$statement->bindValue(':id', $albumID, PDO::PARAM_INT);
 	$statement->execute();
-	$albums = $statement->fetchAll(PDO::FETCH_ASSOC);
+	$songs = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 	clog('statment created successfully...');
 	clog('bindValue successful...');
@@ -193,10 +193,10 @@
 						<!-- <legend>Songs selected</legend> -->
 						<?php  
 							$cnt = 0;
-							foreach ($albums as $album) {
+							foreach ($songs as $song) {
 								$cnt++;
-								$songTitle = $album["song"];  
-								$seconds = $album["seconds"];
+								$songTitle = $song["song"];  
+								$seconds = $song["seconds"];
 								$runtime = secToHR($seconds);
 								echo "<input type='checkbox' name='songs' value='$songTitle'>$cnt. $songTitle - $runtime<br>";
 							}
