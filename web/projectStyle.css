@@ -46,7 +46,7 @@ div[id="synopsis"]{
 	font-weight: 900;
 }*/
 
-input[type="button"]/*[id="goBack"]*/{
+input[type="button"], input[type="submit"]/*[id="goBack"]*/{
 	padding: .5rem 2rem;
 	margin:.5rem 0 0 0;
 	font-size: 1rem;
@@ -57,7 +57,7 @@ input[type="button"]/*[id="goBack"]*/{
 	background-color: #eee;
 }
 
-input[type="button"]/*[id="goBack"]*/:hover{
+input[type="button"]:hover,input[type="submit"]/*[id="goBack"]*/:hover{
 	background-color: tomato;
 	color: white; 
 }
