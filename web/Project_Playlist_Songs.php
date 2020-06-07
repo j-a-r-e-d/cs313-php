@@ -141,7 +141,7 @@
 <body>
 	<header>
 		<h1>ROAD-TRIP PLAYLIST MAKER</h1>
-		<h3>Welcome, <?php echo $firstName.". Select the songs youd like to add to your playlist..."?></h3>
+		<!-- <h3>Welcome, <?php //echo $firstName.". Select the songs youd like to add to your playlist..."?></h3> -->
 	</header>
 	<a href="Project_Playlist.html"><h3 id="goBackHome">Back to start page</h3></a>
 	<div>
@@ -176,7 +176,7 @@
 			echo "<tr><td><span style='color:#ccc'>$albumTitle</span></td></tr>";
 		?>
 			
-		</table>
+		<!-- </table>
 		<table name="songs" id="songs">
 			<tr>
 				<th>Songs</th>
@@ -184,7 +184,7 @@
 			<tr>
 				<td>
 					<fieldset>
-						<legend>Songs selected</legend>
+						<legend>Songs selected</legend> -->
 						<?php  
 							// $cnt = 0;
 							// foreach ($albums as $album) {
@@ -221,9 +221,9 @@
 							// echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
 						?>
 					</ol> -->
-				</td>
+				<!-- </td>
 			</tr>
-		</table>
+		</table> -->
 		
 	</div>
 	<div id="results">
