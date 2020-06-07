@@ -157,7 +157,7 @@
 	<div id="results">
 		<?php  
 			echo "<p>All selected songs for the playlist should go here. Also show TOTAL PLAY TIME, UserName, date created, and playlistTitle</p>";
-			echo "<h3>Title: ".$playlistTitle"</h3>";
+			echo $playlistTitle;
 
 		?>
 	</div>
