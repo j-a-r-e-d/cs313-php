@@ -180,7 +180,7 @@
 
 	<div id="results">
 		<?php  
-			echo $playlist['playlist'];
+			var_dump($playlist);
 
 
 		?>
