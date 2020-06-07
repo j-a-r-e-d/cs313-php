@@ -195,7 +195,7 @@
 							// 	echo "<input type='checkbox' name='songs' value='$songTitle'>$cnt. $songTitle - $runtime";
 							// }
 						?>
-					</fieldset>
+					<!-- </fieldset> -->
 					<?php  
 						// $cnt = 0;
 						// foreach ($albums as $album) {
