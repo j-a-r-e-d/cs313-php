@@ -18,32 +18,32 @@
 	if (!isset($_GET['lastName']))
 	{
 		die("Error, last name not specified...");
-		clog("Error, first name not specified...");
+		clog("Error, last name not specified...");
 	}
 	if (!isset($_GET['loginName']))
 	{
 		die("Error, login name not specified...");
-		clog("Error, first name not specified...");
+		clog("Error, login name not specified...");
 	}
 	if (!isset($_GET['city']))
 	{
 		die("Error, city not specified...");
-		clog("Error, first name not specified...");
+		clog("Error, city not specified...");
 	}
 	if (!isset($_GET['state']))
 	{
 		die("Error, state not specified...");
-		clog("Error, first name not specified...");
+		clog("Error, state not specified...");
 	}
 	if (!isset($_GET['email']))
 	{
 		die("Error, email not specified...");
-		clog("Error, first name not specified...");
+		clog("Error, email not specified...");
 	}
 	if (!isset($_GET['travelTime']))
 	{
 		die("Error, travel time not specified...");
-		clog("Error, first name not specified...");
+		clog("Error, travel time not specified...");
 	}
 
 	clog('Input variable checked....');
@@ -127,7 +127,7 @@
 <body>
 	<header>
 		<h1>ROAD-TRIP PLAYLIST MAKER</h1>
-		<h3>Welcome, <?php echo '$firstName. Pick your genre...'></h3>
+		<h3>Welcome, <?php echo '$firstName. Pick your genre...'?></h3>
 	</header>
 	<div id="buttonMenu">
 		<table name="genres" id="genres">
