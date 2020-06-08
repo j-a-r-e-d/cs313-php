@@ -11,7 +11,7 @@
 	  return "$minutes:$seconds";
 	}
 
-	clog('ChromePhp has been included on Songs.php...');
+	clog('ChromePhp has been included on MyPlaylist.php...');
 	clog('clog() has been declared');
 	clog('secToHR() created successfully');
 	
@@ -47,7 +47,7 @@
 		die("Error, artist name not specified...");
 		clog("Error, artist name not specified...");
 	}
-	if (!isset($_GET['songs[]']))
+	if (!empty($_GET['songs[]']))
 	{
 		die("Error, songs not specified...");
 		clog("Error, songs not specified...");
