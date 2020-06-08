@@ -173,10 +173,10 @@
 			$cnt = 0;
 			/*********************************************
 			* COULD NOT FIGURE OUT HOW TO GET THE COUNT OF THE SONGS ARRAY. SEE BELOW.
-			* I TRIED count($_GET[''])
+			* I TRIED count($_GET['songs']) ALSO AND STILL BROKE THE PROGRAM.
 			**********************************************/
-			$checked_count = count($_GET['songs[]');
-			echo "Total Tracks: ".$checked_count."<br>";
+			// $checked_count = count($_GET['songs[]');
+			// echo "Total Tracks: ".$checked_count."<br>";
 			echo "<br>";
 			foreach ($_GET['songs'] as $selected) {
 				$cnt++;
