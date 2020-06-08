@@ -172,10 +172,10 @@
 			
 			$cnt = 0;
 
-			if(!empty($songs)){
-				$checked_count = count($_GET['songs']);
-				echo "Total Tracks: ".$checked_count"<br>";
-			}
+			// if(!empty($songs)){
+			// 	$checked_count = count($_GET['songs']);
+			// 	echo "Total Tracks: ".$checked_count"<br>";
+			// }
 
 			foreach ($_GET['songs'] as $selected) {
 				$cnt++;
