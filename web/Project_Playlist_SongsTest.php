@@ -201,6 +201,7 @@
 									$runtime 	= secToHR($seconds);
 									$value 		= $songTitle.' - '.$runtime;
 									echo "<input type='checkbox' name='songs[]' value='$value'>$cnt. $songTitle - $runtime<br>";
+									clog($cnt.'. '.$value);
 								}
 							?>
 							<input type="hidden" name="genreID" value="<?php echo $genreID;?>">
