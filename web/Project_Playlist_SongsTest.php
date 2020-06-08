@@ -189,24 +189,43 @@
 			</tr>
 			<tr>
 				<td>
-					<fieldset>
-						<!-- <legend>Songs selected</legend> -->
-						<?php  
-							$cnt = 0;
-							foreach ($songs as $song) {
-								$cnt++;
-								$songTitle = $song["song"];  
-								$seconds = $song["seconds"];
-								$runtime = secToHR($seconds);
-								echo "<input type='checkbox' name='songs' value='$songTitle'>$cnt. $songTitle - $runtime<br>";
-							}
-						?>
-					</fieldset>
+					<form method="GET" action="Project_Playlist_MyPlaylist.php">
+						<fieldset>
+							<!-- <legend>Songs selected</legend> -->
+							<?php  
+								$cnt = 0;
+								foreach ($songs as $song) {
+									$cnt++;
+									$songTitle 	= $song["song"];  
+									$seconds 	= $song["seconds"];
+									$runtime 	= secToHR($seconds);
+									$value 		= $songTitle.' - '.$runtime;
+									echo "<input type='checkbox' name='songs[]' value='$value'>$cnt. $songTitle - $runtime<br>";
+								}
+							?>
+							<input type="hidden" name="genreID" value="<?php echo $genreID;?>">
+							<input type="hidden" name="genreDesc" value="<?php echo $genreDesc;?>">
+							<input type="hidden" name="artistID" value="<?php echo $artistID;?>">
+							<input type="hidden" name="artistname" value="<?php echo $artistname;?>">
+							<input type="hidden" name="albumID" value="<?php echo $albumID;?>">
+							<input type="hidden" name="albumTitle" value="<?php echo $albumTitle;?>">
+							<input type="hidden" name="firstName" value="<?php echo $firstName;?>">
+							<input type="hidden" name="lastName" value="<?php echo $lastName;?>">
+							<input type="hidden" name="loginName" value="<?php echo $loginName;?>">
+							<input type="hidden" name="city" value="<?php echo $city;?>">
+							<input type="hidden" name="state" value="<?php echo $state;?>">
+							<input type="hidden" name="email" value="<?php echo $email;?>">
+							<input type="hidden" name="travelTime" value="<?php echo $travelTime;?>">
+							<input type="hidden" name="playlistTitle" value="<?php echo $playlistTitle;?>">
+							<input type='submit' value='Add to playlist'>
+						</fieldset>
+					</form>
+
 				</td>
 			</tr>
 			<?php
-				// echo "<tr><td><a href='Project_Playlist_MyPlaylist.php?'><input type='button' id='myPlaylist' value='Add to playlist'></a></td></tr>"
-				echo "<tr><td><a href='Project_Playlist_MyPlaylist.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname&albumID=$albumID&albumTitle=$albumTitle&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime&playlistTitle=$playlistTitle'><input type='button' id='myPlaylist' value='Add to playlist'></a><br><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime&playlistTitle=$playlistTitle'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
+				// <a href='Project_Playlist_MyPlaylist.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname&albumID=$albumID&albumTitle=$albumTitle&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime&playlistTitle=$playlistTitle'><input type='button' id='myPlaylist' value='Add to playlist'></a><br>
+				echo "<tr><td><a href='Project_Playlist_Albums.php?genreID=$genreID&genreDesc=$genreDesc&artistID=$artistID&artistname=$artistname&firstName=$firstName&lastName=$lastName&loginName=$loginName&city=$city&state=$state&email=$email&travelTime=$travelTime&playlistTitle=$playlistTitle'><input type='button' id='goBack' value='Go Back'></a></td></tr>"
 			?>
 		</table>
 		

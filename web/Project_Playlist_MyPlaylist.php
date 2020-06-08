@@ -47,6 +47,11 @@
 		die("Error, artist name not specified...");
 		clog("Error, artist name not specified...");
 	}
+	if (!isset($_GET['songs']))
+	{
+		die("Error, songs not specified...");
+		clog("Error, songs not specified...");
+	}
 	// User variables
 	if (!isset($_GET['firstName']))
 	{
@@ -97,6 +102,7 @@
 	$artistname = htmlspecialchars($_GET['artistname']);
 	$albumID 	= htmlspecialchars($_GET['albumID']);
 	$albumTitle = htmlspecialchars($_GET['albumTitle']);
+	$songs 		= htmlspecialchars($_GET['songs']);
 	// User variables
 	$firstName 	= htmlspecialchars($_GET['firstName']);
 	$lastName 	= htmlspecialchars($_GET['lastName']);
@@ -115,6 +121,7 @@
 	clog('AlbumID = '.$albumID);
 	clog('AlbumTitle = '.$albumTitle);
 	clog('PlaylistTitle = '.$playlistTitle);
+	clog('Songs[] = '.$songs);
 	
 	require "DBConnection.php";
 	$db = get_db();
@@ -158,29 +165,18 @@
 		<h3>You're done! Enjoy "<?php echo $playlistTitle;?>" on your road-trip.</h3>
 	</header>
 	<a href="Project_Playlist.html"><h3 id="goBackHome">Back to start page</h3></a>
-	<div>
-		<!-- <a href="Project_Playlist_Genres.php">
-			<input type="button" name="genres" value="Genres" id="genres">
-		</a>
-		<a href="Project_Playlist_Artists.php">
-			<input type="button" name="artists" value="Artists" id="artists">
-		</a>
-		<a href="Project_Playlist_Albums.php">
-			<input type="button" name="albums" value="Albums" id="albums">
-		</a>
-		<a href="Project_Playlist_Songs.php">
-			<input type="button" name="songs" value="Songs" id="songs">
-		</a>
-		<a href="Project_Playlist_Playlists.php">
-			<input type="button" name="playlists" value="Playlists" id="playlists">
-		</a> -->
-	</div>
 
 	<div id="results">
 		<?php  
-			var_dump($playlist);
-			echo "<br><br>";
-			print_r($playlist[0]);
+			echo "User: ".$firstName.' '.$lastName."<br>";
+			echo "Playlist Name: ".$playlist[0]['playlist']."<br>";
+			echo "Songs:<br>";
+			$cnt = 0;
+			
+			foreach ($songs as $selected) {
+				$cnt++;
+				echo $cnt.". ".$selected."<br>";
+			}
 		?>
 	</div>
 
