@@ -47,7 +47,7 @@
 		die("Error, artist name not specified...");
 		clog("Error, artist name not specified...");
 	}
-	if (!empty($_GET['songs']))
+	if (!empty($_GET['songs[]']))
 	{
 		die("Error, songs not specified...");
 		clog("Error, songs not specified...");
