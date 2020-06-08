@@ -102,7 +102,7 @@
 	$artistname = htmlspecialchars($_GET['artistname']);
 	$albumID 	= htmlspecialchars($_GET['albumID']);
 	$albumTitle = htmlspecialchars($_GET['albumTitle']);
-	$songs 		= htmlspecialchars($_GET['songs[]']);
+	$songs 		= array(htmlspecialchars($_GET['songs[]']));
 	// User variables
 	$firstName 	= htmlspecialchars($_GET['firstName']);
 	$lastName 	= htmlspecialchars($_GET['lastName']);
