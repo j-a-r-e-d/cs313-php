@@ -170,12 +170,17 @@
 		<?php  
 			echo "User: ".$firstName.' '.$lastName."<br>";
 			echo "Playlist Name: ".$playlist[0]['playlist']."<br>";
-			echo "Songs:<br>";
+			
 			$cnt = 0;
 
-			foreach ($songs as $selected) {
+			if(!empty($_GET[songs])){
+				$checked_count = count($_GET['songs']);
+				echo $checked_count." songs<br>";
+			}
+
+			foreach ($_GET['songs'] as $selected) {
 				$cnt++;
-				echo $cnt.". ".$selected."<br>";
+				echo "<p>".$cnt.". ".$selected."</p>";
 			}
 		?>
 	</div>
