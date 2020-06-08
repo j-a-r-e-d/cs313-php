@@ -47,7 +47,7 @@
 		die("Error, artist name not specified...");
 		clog("Error, artist name not specified...");
 	}
-	if (!isset($_GET['songs']))
+	if (!isset($_GET['songs[]']))
 	{
 		die("Error, songs not specified...");
 		clog("Error, songs not specified...");
@@ -172,7 +172,7 @@
 			echo "Playlist Name: ".$playlist[0]['playlist']."<br>";
 			echo "Songs:<br>";
 			$cnt = 0;
-			
+
 			foreach ($songs as $selected) {
 				$cnt++;
 				echo $cnt.". ".$selected."<br>";
