@@ -121,7 +121,7 @@
 	clog('AlbumID = '.$albumID);
 	clog('AlbumTitle = '.$albumTitle);
 	clog('PlaylistTitle = '.$playlistTitle);
-	clog('Songs[] = '.$songs);
+	clog('Songs[] = '.print_r($songs));
 	
 	require "DBConnection.php";
 	$db = get_db();
