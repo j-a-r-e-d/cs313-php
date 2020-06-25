@@ -33,3 +33,22 @@ LEFT JOIN playlists_detail 	pd ON 	pd.playlistid = p.playlistid
 LEFT JOIN songs 			s ON	s.songid = pd.songid 
 WHERE 	p.isdeleted = 'f' AND
 		p.title = 'Revolution Tunes';
+
+CREATE TABLE movieGenres (
+	genreID 	serial PRIMARY KEY,
+	description	VARCHAR(25) NOT NULL
+	--movieID 	INT NOT NULL REFERENCES movies (movieID)
+);
+
+CREATE TABLE movies (
+   movieID 		serial PRIMARY KEY,
+   title      	VARCHAR(50) NOT NULL,
+   releaseDate 	DATE NOT NULL
+   --genreID   	INT NOT NULL REFERENCES movieGenres (genreID)
+);
+
+CREATE TABLE listMoviesByGenre (
+	genericID	serial PRIMARY KEY,
+	movieID 	INT NOT NULL REFERENCES movies (movieID),
+	genreID 	INT NOT NULL REFERENCES movieGenres (genreID)
+);
