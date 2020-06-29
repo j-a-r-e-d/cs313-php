@@ -1,7 +1,7 @@
 CREATE TABLE innovations (
 	innovation_id 	SERIAL PRIMARY KEY,
 	name			VARCHAR(25) NOT NULL,
-	description		TEXT NOT NULL,
+	description		TEXT,
 	date_invented	DATE NOT NULL
 );
 
@@ -47,3 +47,15 @@ CREATE TABLE innovator_innovations (
 	innovator_id 	INT NOT NULL,
 	innovation_id 	INT NOT NULL
 );
+
+-- INSERTS...
+
+
+
+
+
+
+
+
+
+
