@@ -84,7 +84,28 @@ VALUES
 -- ('MOLDBOARD PLOW',1814),
 -- ('ARCHIMEDES SCREW',-234),
 -- ('COTTON GIN',1794),
--- ('PASTEURIZATION',1864); -- Inserted these on 6/30/20
+-- ('PASTEURIZATION',1864), -- Inserted these on 6/30/20
+-- ('GREGORIAN CALENDAR',1582),
+-- ('OIL REFINING',1853),
+-- ('STEAM TURBINE',1884),
+-- ('CEMENT',1824),
+-- ('SCIENTIFIC PLANT BREEDING',1856),
+-- ('OIL DRILLING',1859),
+-- ('SAILBOAT',-6000),
+-- ('ROCKETRY',1926),
+-- ('PAPER MONEY',960),
+-- ('ABACUS',-2700),
+-- ('AIR CONDITIONING',1902),
+-- ('TELEVISION',1925),
+-- ('ANESTHESIA',1846),
+-- ('NAIL',-3400),
+-- ('LEVER',-3000),
+-- ('ASSEMBLY LINE',1901),
+-- ('PULLEY',-1500),
+-- ('COMBINE HARVESTER',1835),
+-- ('PAVED ROADS',1870),
+-- ('TELESCOPE',1668),
+-- ('MAGNIFYING GLASS',1250); -- INSERTED THESE 7/4/20
 
 
 -- -- Race insert completed 6/29/20...
@@ -215,8 +236,102 @@ INSERT INTO innovators (
 -- ('EDWARD','DE SMEDT',3,1,1,NULL,NULL),
 -- ('ISAAC','NEWTON',5,10,1,1642,1727),
 -- ('ROGER','BACON',5,10,1,1219,1292); -- INSERTED THESE 7/4/20
-('','',,,,,),
-('','',,,,,),
+
+
+-- INSERT INTO innovator_innovations (innovator_id,innovation_id)
+-- VALUES
+-- (1,1),
+-- (2,2),
+-- (3,3),
+-- (4,4),
+-- (5,5),
+-- (6,5),
+-- (7,5),
+-- (8,6),
+-- (9,7),
+-- (10,8),
+-- (11,9),
+-- (12,10),
+-- (13,11),
+-- (14,11),
+-- (15,12),
+-- (16,13),
+-- (17,14),
+-- (18,15),
+-- (19,16),
+-- (20,17),
+-- (21,17),
+-- (22,18),
+-- (23,19),
+-- (24,20),
+-- (25,21),
+-- (26,22),
+-- (27,23),
+-- (28,24),
+-- (29,25),
+-- (30,26),
+-- (31,27),
+-- (32,28),
+-- (33,29),
+-- (34,30),
+-- (35,31),
+-- (36,32),
+-- (37,33),
+-- (38,34),
+-- (39,35),
+-- (40,36),
+-- (41,37),
+-- (42,38),
+-- (43,39),
+-- (44,40),
+-- (45,41),
+-- (46,42),
+-- (47,43),
+-- (48,44),
+-- (49,45),
+-- (50,46),
+-- (51,47),
+-- (52,48),
+-- (53,49),
+-- (54,50),
+-- (55,51),
+-- (56,52),
+-- (57,53),
+-- (58,54),
+-- (59,55); -- INSERTED THESE 7/720
+
+
+
+SELECT 	a.name, b.lastname||', '||b.firstname as Inventor, a.date_invented, r.race_name, c.country_name
+FROM 	innovations a 
+JOIN 	innovator_innovations ii on ii.innovation_id = a.innovation_id
+JOIN 	innovators b on b.innovator_id = ii.innovator_id
+JOIN 	races r on r.race_id = b.race_id
+JOIN 	countries c on c.country_id = b.country_id
+-- where 	b.innovator_id = 5;
+WHERE 	a.date_invented > 1776
+AND 	c.country_name = 'AMERICA'
+ORDER BY a.date_invented, a.name;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
